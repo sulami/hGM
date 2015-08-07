@@ -1,4 +1,7 @@
-module Main where
+module Entry (
+  Entry, newEntry,
+  findMatches, findEntries
+  ) where
 
 -- | Describes an entry.
 data Entry = Entry {
@@ -22,7 +25,4 @@ findMatches list str = filter (`elem` list) $ words str
 -- names, so that the corresponing entries can be looked up.
 findEntries :: [Entry] -> Entry -> [String]
 findEntries list ent = findMatches (map name list) (content ent)
-
-main = do let e = newEntry "Hello, World!"
-          print e
 
