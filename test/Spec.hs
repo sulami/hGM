@@ -1,2 +1,6 @@
-main :: IO ()
-main = putStrLn "Test suite not yet implemented"
+import Test.QuickCheck
+
+import Entry
+
+main = quickCheck (\l s -> all (`elem` l) (findMatches l s))
+
