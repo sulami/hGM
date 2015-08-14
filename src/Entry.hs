@@ -26,3 +26,8 @@ findMatches list str = filter (`elem` list) $ words str
 findEntries :: [Entry] -> Entry -> [String]
 findEntries list ent = findMatches (map name list) (content ent)
 
+-- | Create the short version of a Text.
+shortVersion :: Int -> String -> String
+shortVersion len s0 = let short = unwords $ take len $ words s0
+                      in short ++ "..."
+
