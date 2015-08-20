@@ -1,4 +1,6 @@
-module Entry (
+-- | This module handles entries and linking them to each other.
+
+module Game.DnD.GM.Entry (
   Entry, newEntry,
   findMatches, findEntries
   ) where

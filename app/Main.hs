@@ -1,6 +1,6 @@
 module Main where
 
-import Entry
+import Game.DnD.GM
 
 main = do let e = newEntry "Hello, World!"
           print e
