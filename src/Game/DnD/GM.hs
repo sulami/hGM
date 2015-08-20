@@ -5,5 +5,6 @@ module Game.DnD.GM (
   Entry, newEntry, findMatches, findEntries
 ) where
 
+import Game.DnD.GM.Dice
 import Game.DnD.GM.Entry
 

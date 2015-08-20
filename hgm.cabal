@@ -15,8 +15,7 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Game.DnD.GM
-  other-modules:       Game.DnD.GM.Dice
+  exposed-modules:     Game.DnD.GM.Dice
                      , Game.DnD.GM.Entry
   build-depends:       base >= 4.7 && < 5
                      , random >= 1.1
