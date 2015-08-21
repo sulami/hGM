@@ -5,6 +5,8 @@ module Game.DnD.GM.Entry (
   findMatches, findEntries
   ) where
 
+import Prelude
+
 -- | Describes an entry.
 data Entry = Entry {
       name :: String,

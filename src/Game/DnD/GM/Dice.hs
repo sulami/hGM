@@ -2,6 +2,7 @@
 
 module Game.DnD.GM.Dice where
 
+import Prelude
 import System.Random (StdGen, getStdGen, mkStdGen, randomR, randomRs)
 
 -- | Use an initial integer to deterministically initialize the RNG.
