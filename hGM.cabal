@@ -1,4 +1,4 @@
-name:                hgm
+name:                hGM
 version:             0.1.0.0
 synopsis:            RPG GM Story Management Tool
 description:         Please see README.md
@@ -95,13 +95,13 @@ library
                  , time
                  , random
 
-executable         hgm
+executable         hGM
     if flag(library-only)
         Buildable: False
 
     main-is:           main.hs
     hs-source-dirs:    app
-    build-depends:     base, hgm
+    build-depends:     base, hGM
 
     ghc-options:       -threaded -O2 -rtsopts -with-rtsopts=-N
 
@@ -128,7 +128,7 @@ test-suite test
                 TupleSections
 
     build-depends: base
-                 , hgm
+                 , hGM
                  , yesod-test >= 1.4.3 && < 1.5
                  , yesod-core
                  , yesod
