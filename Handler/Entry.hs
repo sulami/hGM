@@ -5,9 +5,9 @@ import Import
 import Data.Maybe (fromJust)
 
 entryForm :: Form Entry
-entryForm = renderDivs $ Entry
-  <$> areq textField "Title"    Nothing
-  <*> areq textField "Content"  Nothing
+entryForm = renderTable $ Entry
+  <$> areq textField "Title" Nothing
+  <*> areq textareaField "Content" Nothing
 
 getEntryR :: EntryId -> Handler Html
 getEntryR entryId = do
