@@ -6,12 +6,14 @@ import Handler.EntryEdit (entryForm)
 
 getNewEntryR :: Handler Html
 getNewEntryR = do
-  (entryWidget, enctype) <- generateFormPost entryForm
+  user <- requireAuthId
+  (entryWidget, enctype) <- generateFormPost $ entryForm user
   defaultLayout $(widgetFile "newentry")
 
 postNewEntryR :: Handler Html
 postNewEntryR = do
-  ((res,_), enctype) <- runFormPost entryForm
+  user <- requireAuthId
+  ((res,_), enctype) <- runFormPost $ entryForm user
   case res of
     FormSuccess entry -> do
       entryId <- runDB $ insert entry

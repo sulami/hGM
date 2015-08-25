@@ -2,15 +2,17 @@ module Handler.EntryEdit where
 
 import Import
 
-entryForm :: Form Entry
-entryForm = renderSemantic $ Entry
+entryForm :: UserId -> Form Entry
+entryForm user = renderSemantic $ Entry
   <$> areq textField "Title" Nothing
   <*> areq textareaField "Content" Nothing
+  <*> pure user
 
 prepEntryForm :: Entry -> Form Entry
 prepEntryForm entry = renderSemantic $ Entry
   <$> areq textField "Title" (Just $ entryName entry)
   <*> areq textareaField "Content" (Just $ entryContent entry)
+  <*> (pure $ entryOwnerId entry)
 
 getEntryEditR :: EntryId -> Handler Html
 getEntryEditR entryId = do
@@ -23,12 +25,13 @@ getEntryEditR entryId = do
 
 postEntryEditR :: EntryId -> Handler Html
 postEntryEditR entryId = do
-  ((res,_), _) <- runFormPost entryForm
+  user <- requireAuthId
+  ((res,_), _) <- runFormPost $ entryForm user
   entry <- runDB $ get404 entryId
   case res of
     FormSuccess entryData -> do
       runDB $ replace entryId entryData
-      setMessage $ toHtml $ (entryName entry) <> " created"
+      setMessage $ toHtml $ (entryName entry) <> " saved"
       redirect $ EntryR entryId
     _ -> defaultLayout $ do
       setTitle "Bad."

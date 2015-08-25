@@ -7,3 +7,5 @@ $else
       <li>
         <a href=@{EntryR entryId}> #{entryName entry}
 
+<a href=@{NewEntryR}>New Entry
+

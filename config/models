@@ -11,5 +11,6 @@ Email
 Entry
     name Text
     content Textarea
+    ownerId UserId
     deriving
 
