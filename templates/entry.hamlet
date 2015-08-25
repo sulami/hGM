@@ -1,0 +1,3 @@
+<h1>#{entryName entry}
+<div>#{entryContent entry}
+
