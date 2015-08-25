@@ -7,3 +7,4 @@
 / HomeR GET
 /entry/#EntryId EntryR GET POST
 /newentry NewEntryR GET POST
+/entries EntriesR GET

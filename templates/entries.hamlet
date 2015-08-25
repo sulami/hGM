@@ -1,0 +1,9 @@
+<h1>Entries
+$if null entries
+  <p>Empty!
+$else
+  <ol>
+    $forall Entity entryId entry <- entries
+      <li>
+        <a href=@{EntryR entryId}> #{entryName entry}
+

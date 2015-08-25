@@ -34,6 +34,7 @@ library
                      Handler.Home
                      Handler.Entry
                      Handler.NewEntry
+                     Handler.Entries
                      Game.DnD.GM.Dice
                      Game.DnD.GM.Entry
 
