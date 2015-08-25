@@ -13,7 +13,7 @@ getNewEntryR = do
 postNewEntryR :: Handler Html
 postNewEntryR = do
   user <- requireAuthId
-  ((res,_), enctype) <- runFormPost $ entryForm user
+  ((res,_), _) <- runFormPost $ entryForm user
   case res of
     FormSuccess entry -> do
       entryId <- runDB $ insert entry
