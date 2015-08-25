@@ -12,7 +12,6 @@ entryForm = renderDivs $ Entry
 getEntryR :: EntryId -> Handler Html
 getEntryR entryId = do
   entry <- runDB $ get404 entryId
-  (entryWidget, enctype) <- generateFormPost entryForm
   defaultLayout $ do
     setTitle $ toHtml $ entryName $ entry
     $(widgetFile "entry")

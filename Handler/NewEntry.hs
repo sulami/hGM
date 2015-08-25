@@ -2,10 +2,7 @@ module Handler.NewEntry where
 
 import Import
 
-entryForm :: Form Entry
-entryForm = renderDivs $ Entry
-  <$> areq textField "Title"    Nothing
-  <*> areq textField "Content"  Nothing
+import Handler.Entry (entryForm)
 
 getNewEntryR :: Handler Html
 getNewEntryR = do
