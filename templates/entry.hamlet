@@ -4,5 +4,6 @@
 <hr>
 
 <a href=@{EntryEditR entryId}>Edit
+<a href=@{EntryDelR entryId}>Delete
 <a href=@{EntriesR}>Back
 

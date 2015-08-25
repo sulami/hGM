@@ -9,3 +9,4 @@
 /entries/new           NewEntryR  GET POST
 /entries/edit/#EntryId EntryEditR GET POST
 /entries/view/#EntryId EntryR     GET
+/entry/del/#EntryId EntryDelR GET
