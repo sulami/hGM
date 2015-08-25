@@ -1,6 +1,7 @@
 <h1>#{entryName entry}
+<div>#{entryContent entry}
 
-<form method=post enctype=#{enctype} class="ui form">
-  ^{entryWidget}
-  <input type=submit value="Post">
+<hr>
+
+<a href=@{EntryEditR entryId}>Edit
 

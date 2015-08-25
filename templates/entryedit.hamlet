@@ -1,0 +1,6 @@
+<h1>#{entryName entry}
+
+<form method=post enctype=#{enctype} class="ui form">
+  ^{entryWidget}
+  <input type=submit value="Post">
+

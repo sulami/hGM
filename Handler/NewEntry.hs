@@ -2,7 +2,7 @@ module Handler.NewEntry where
 
 import Import
 
-import Handler.Entry (entryForm)
+import Handler.EntryEdit (entryForm)
 
 getNewEntryR :: Handler Html
 getNewEntryR = do
