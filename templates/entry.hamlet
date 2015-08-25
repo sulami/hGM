@@ -1,3 +1,7 @@
 <h1>#{entryName entry}
-<div>#{entryContent entry}
+
+<table>
+  <form method=post enctype=#{enctype}>
+    ^{entryWidget}
+    <input type=submit value="Post">
 
