@@ -11,7 +11,7 @@ getNewEntryR = do
 
 postNewEntryR :: Handler Html
 postNewEntryR = do
-  ((res,entryWidget), enctype) <- runFormPost entryForm
+  ((res,_), enctype) <- runFormPost entryForm
   case res of
     FormSuccess entry -> do
       entryId <- runDB $ insert entry

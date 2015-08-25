@@ -23,7 +23,7 @@ getEntryEditR entryId = do
 
 postEntryEditR :: EntryId -> Handler Html
 postEntryEditR entryId = do
-  ((res,entryWidget), enctype) <- runFormPost entryForm
+  ((res,_), _) <- runFormPost entryForm
   entry <- runDB $ get404 entryId
   case res of
     FormSuccess entryData -> do
