@@ -1,3 +1,5 @@
+<h1>New Entry
+
 <form method=post enctype=#{enctype}>
   ^{entryWidget}
   <div>

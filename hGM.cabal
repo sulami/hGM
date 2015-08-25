@@ -33,6 +33,7 @@ library
                      Handler.Common
                      Handler.Home
                      Handler.Entry
+                     Handler.NewEntry
                      Game.DnD.GM.Dice
                      Game.DnD.GM.Entry
 
