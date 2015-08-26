@@ -5,7 +5,12 @@ import Import
 getEntryDelR :: EntryId -> Handler Html
 getEntryDelR entryId = do
   user <- requireAuthId
-  runDB $ delete entryId
-  setMessage "Entry deleted."
-  redirect HomeR
+  entry <- runDB $ get404 entryId
+  if user /= entryOwnerId entry
+    then
+      defaultLayout $ $(widgetFile "error")
+    else do
+      runDB $ delete entryId
+      setMessage "Entry deleted."
+      redirect HomeR
 

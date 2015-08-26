@@ -18,25 +18,33 @@ getEntryEditR :: EntryId -> Handler Html
 getEntryEditR entryId = do
   user <- requireAuthId
   entry <- runDB $ get404 entryId
-  (entryWidget, enctype) <- generateFormPost $ prepEntryForm entry
-  defaultLayout $ do
-    setTitle $ toHtml $ entryName $ entry
-    addStylesheetRemote "//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.8/semantic.min.css"
-    $(widgetFile "entryedit")
+  if user /= entryOwnerId entry
+    then
+      defaultLayout $ $(widgetFile "error")
+    else do
+      (entryWidget, enctype) <- generateFormPost $ prepEntryForm entry
+      defaultLayout $ do
+        setTitle $ toHtml $ entryName $ entry
+        addStylesheetRemote "//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.8/semantic.min.css"
+        $(widgetFile "entryedit")
 
 postEntryEditR :: EntryId -> Handler Html
 postEntryEditR entryId = do
   user <- requireAuthId
   ((res,_), _) <- runFormPost $ entryForm user
   entry <- runDB $ get404 entryId
-  case res of
-    FormSuccess entryData -> do
-      runDB $ replace entryId entryData
-      setMessage $ toHtml $ (entryName entry) <> " saved"
-      redirect $ EntryR entryId
-    _ -> defaultLayout $ do
-      setTitle "Bad."
-      $(widgetFile "error")
+  if user /= entryOwnerId entry
+    then
+      defaultLayout $ $(widgetFile "error")
+    else do
+      case res of
+        FormSuccess entryData -> do
+          runDB $ replace entryId entryData
+          setMessage $ toHtml $ (entryName entry) <> " saved"
+          redirect $ EntryR entryId
+        _ -> defaultLayout $ do
+          setTitle "Bad."
+          $(widgetFile "error")
 
 renderSemantic :: Monad m => FormRender m a
 renderSemantic aform fragment = do
