@@ -16,6 +16,7 @@ prepEntryForm entry = renderSemantic $ Entry
 
 getEntryEditR :: EntryId -> Handler Html
 getEntryEditR entryId = do
+  user <- requireAuthId
   entry <- runDB $ get404 entryId
   (entryWidget, enctype) <- generateFormPost $ prepEntryForm entry
   defaultLayout $ do
