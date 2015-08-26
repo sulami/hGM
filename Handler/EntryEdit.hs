@@ -2,16 +2,18 @@ module Handler.EntryEdit where
 
 import Import
 
+import Yesod.Text.Markdown
+
 entryForm :: UserId -> Form Entry
 entryForm user = renderSemantic $ Entry
   <$> areq textField "Title" Nothing
-  <*> areq textareaField "Content" Nothing
+  <*> areq markdownField "Content" Nothing
   <*> pure user
 
 prepEntryForm :: Entry -> Form Entry
 prepEntryForm entry = renderSemantic $ Entry
   <$> areq textField "Title" (Just $ entryName entry)
-  <*> areq textareaField "Content" (Just $ entryContent entry)
+  <*> areq markdownField "Content" (Just $ entryContent entry)
   <*> (pure $ entryOwnerId entry)
 
 getEntryEditR :: EntryId -> Handler Html

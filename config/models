@@ -10,7 +10,7 @@ Email
     UniqueEmail email
 Entry
     name Text
-    content Textarea
+    content Markdown
     ownerId UserId
     deriving
 

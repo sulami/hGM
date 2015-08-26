@@ -99,7 +99,8 @@ library
                  , vector
                  , time
                  , random
-                 , yesod-auth-account
+                 , yesod-text-markdown
+                 , markdown
 
 executable         hGM
     if flag(library-only)
