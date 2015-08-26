@@ -6,7 +6,12 @@ getEntryR :: EntryId -> Handler Html
 getEntryR entryId = do
   user <- requireAuthId
   entry <- runDB $ get404 entryId
-  defaultLayout $ do
-    setTitle $ toHtml $ entryName entry
-    $(widgetFile "entry")
+  if user /= entryOwnerId entry
+    then do
+      setMessage "Permission denied."
+      defaultLayout $ $(widgetFile "error")
+    else do
+      defaultLayout $ do
+        setTitle $ toHtml $ entryName entry
+        $(widgetFile "entry")
 

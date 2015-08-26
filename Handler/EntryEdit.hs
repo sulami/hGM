@@ -19,7 +19,8 @@ getEntryEditR entryId = do
   user <- requireAuthId
   entry <- runDB $ get404 entryId
   if user /= entryOwnerId entry
-    then
+    then do
+      setMessage "Permission denied."
       defaultLayout $ $(widgetFile "error")
     else do
       (entryWidget, enctype) <- generateFormPost $ prepEntryForm entry
@@ -34,7 +35,8 @@ postEntryEditR entryId = do
   ((res,_), _) <- runFormPost $ entryForm user
   entry <- runDB $ get404 entryId
   if user /= entryOwnerId entry
-    then
+    then do
+      setMessage "Permission denied."
       defaultLayout $ $(widgetFile "error")
     else do
       case res of
@@ -43,7 +45,7 @@ postEntryEditR entryId = do
           setMessage $ toHtml $ (entryName entry) <> " saved"
           redirect $ EntryR entryId
         _ -> defaultLayout $ do
-          setTitle "Bad."
+          setMessage "Permission denied."
           $(widgetFile "error")
 
 renderSemantic :: Monad m => FormRender m a

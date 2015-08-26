@@ -7,7 +7,8 @@ getEntryDelR entryId = do
   user <- requireAuthId
   entry <- runDB $ get404 entryId
   if user /= entryOwnerId entry
-    then
+    then do
+      setMessage "Permission denied."
       defaultLayout $ $(widgetFile "error")
     else do
       runDB $ delete entryId
