@@ -4,9 +4,9 @@
 /favicon.ico FaviconR GET
 /robots.txt RobotsR GET
 
-/ HomeR GET
+/                      HomeR      GET
 /entries               EntriesR   GET
 /entries/new           NewEntryR  GET POST
 /entries/edit/#EntryId EntryEditR GET POST
 /entries/view/#EntryId EntryR     GET
-/entry/del/#EntryId EntryDelR GET
+/entry/del/#EntryId    EntryDelR  GET
