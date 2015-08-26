@@ -26,7 +26,6 @@ getEntryEditR entryId = do
       (entryWidget, enctype) <- generateFormPost $ prepEntryForm entry
       defaultLayout $ do
         setTitle $ toHtml $ entryName $ entry
-        addStylesheetRemote "//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.8/semantic.min.css"
         $(widgetFile "entryedit")
 
 postEntryEditR :: EntryId -> Handler Html

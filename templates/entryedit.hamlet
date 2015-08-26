@@ -2,5 +2,6 @@
 
 <form method=post enctype=#{enctype} class="ui form">
   ^{entryWidget}
-  <input type=submit value="Post">
+  <input type=submit class="positive ui button" value="Save">
+  <button type="button" onClick="location.href = '@{EntryR entryId}';" class="negative ui button">Cancel
 

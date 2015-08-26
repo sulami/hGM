@@ -1,9 +1,7 @@
 <h1>#{entryName entry}
 <div>#{entryContent entry}
 
-<hr>
-
-<a href=@{EntryEditR entryId}>Edit
-<a href=@{EntryDelR entryId}>Delete
-<a href=@{EntriesR}>Back
+<button onClick="location.href = '@{EntryEditR entryId}';" class="ui button">Edit
+<button onClick="location.href = '@{EntryDelR entryId}';" class="negative ui button">Delete
+<button onClick="location.href = '@{EntriesR}';" class="ui button">Back
 

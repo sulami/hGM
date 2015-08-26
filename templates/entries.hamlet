@@ -2,10 +2,10 @@
 $if null entries
   <p>Empty!
 $else
-  <ol>
+  <div .ui .list>
     $forall Entity entryId entry <- entries
-      <li>
+      <div .item>
         <a href=@{EntryR entryId}> #{entryName entry}
 
-<a href=@{NewEntryR}>New Entry
+<button href=@{NewEntryR} class="ui button">New Entry
 
