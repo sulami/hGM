@@ -5,6 +5,6 @@ import Import
 getEntriesR :: Handler Html
 getEntriesR = do
   user <- requireAuthId
-  entries <- runDB $ selectList [] [Asc EntryId, LimitTo 5]
+  entries <- runDB $ selectList [EntryOwnerId ==. user] [Asc EntryId]
   defaultLayout $(widgetFile "entries")
 
