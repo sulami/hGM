@@ -23,6 +23,7 @@ Flag library-only
 
 library
     hs-source-dirs: ., app, src
+    default-language:  Haskell2010
     exposed-modules: Application
                      Foundation
                      Import
@@ -109,6 +110,7 @@ executable         hGM
     main-is:           main.hs
     hs-source-dirs:    app
     build-depends:     base, hGM
+    default-language:  Haskell2010
 
     ghc-options:       -threaded -O2 -rtsopts -with-rtsopts=-N
 
@@ -117,6 +119,7 @@ test-suite test
     main-is:           Spec.hs
     hs-source-dirs:    test
     ghc-options:       -Wall
+    default-language:  Haskell2010
 
     extensions: TemplateHaskell
                 QuasiQuotes
