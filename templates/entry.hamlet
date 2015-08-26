@@ -1,7 +1,10 @@
 <h1>#{entryName entry}
 <div>#{entryContent entry}
 
+<div .ui .hidden .divider>
+
 <button onClick="location.href = '@{EntryEditR entryId}';" class="ui button">Edit
-<button onClick="location.href = '@{EntryDelR entryId}';" class="negative ui button">Delete
 <button onClick="location.href = '@{EntriesR}';" class="ui button">Back
+
+<button onClick="location.href = '@{EntryDelR entryId}';" class="negative ui button">Delete
 

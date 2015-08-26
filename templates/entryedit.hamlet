@@ -1,4 +1,4 @@
-<h1>#{entryName entry}
+<h1>Editing #{entryName entry}
 
 <form method=post enctype=#{enctype} class="ui form">
   ^{entryWidget}
