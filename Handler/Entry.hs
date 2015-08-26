@@ -10,7 +10,7 @@ getEntryR entryId = do
     then do
       setMessage "Permission denied."
       defaultLayout $ $(widgetFile "error")
-    else do
+    else
       defaultLayout $ do
         setTitle $ toHtml $ entryName entry
         $(widgetFile "entry")

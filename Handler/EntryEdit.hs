@@ -27,7 +27,7 @@ getEntryEditR entryId = do
     else do
       (entryWidget, enctype) <- generateFormPost $ prepEntryForm entry
       defaultLayout $ do
-        setTitle $ toHtml $ entryName $ entry
+        setTitle $ toHtml $ entryName entry
         $(widgetFile "entryedit")
 
 postEntryEditR :: EntryId -> Handler Html
@@ -39,11 +39,11 @@ postEntryEditR entryId = do
     then do
       setMessage "Permission denied."
       defaultLayout $ $(widgetFile "error")
-    else do
+    else
       case res of
         FormSuccess entryData -> do
           runDB $ replace entryId entryData
-          setMessage $ toHtml $ (entryName entry) <> " saved"
+          setMessage $ toHtml $ entryName entry <> " saved"
           redirect $ EntryR entryId
         _ -> defaultLayout $ do
           setMessage "Permission denied."

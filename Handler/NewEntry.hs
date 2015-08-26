@@ -17,7 +17,7 @@ postNewEntryR = do
   case res of
     FormSuccess entry -> do
       entryId <- runDB $ insert entry
-      setMessage $ toHtml $ (entryName entry) <> " created"
+      setMessage $ toHtml $ entryName entry <> " created"
       redirect $ EntryR entryId
     _ -> defaultLayout $ do
       setMessage "Error creating entry."
