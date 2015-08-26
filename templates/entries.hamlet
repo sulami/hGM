@@ -7,5 +7,5 @@ $else
       <div .item>
         <a href=@{EntryR entryId}> #{entryName entry}
 
-<button href=@{NewEntryR} class="ui button">New Entry
+<button onClick="location.href = '@{NewEntryR}';" class="ui button">New Entry
 

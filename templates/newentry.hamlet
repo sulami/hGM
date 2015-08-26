@@ -1,7 +1,7 @@
 <h1>New Entry
 
-<table>
-  <form method=post enctype=#{enctype}>
-    ^{entryWidget}
-    <input type=submit value="Post">
+<form method=post enctype=#{enctype} class="ui form">
+  ^{entryWidget}
+  <input type=submit class="positive ui button" value="Save">
+  <button type="button" onClick="location.href = '@{EntriesR}';" class="negative ui button">Cancel
 

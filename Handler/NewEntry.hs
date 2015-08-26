@@ -20,6 +20,6 @@ postNewEntryR = do
       setMessage $ toHtml $ (entryName entry) <> " created"
       redirect $ EntryR entryId
     _ -> defaultLayout $ do
-      setTitle "Bad."
+      setMessage "Error creating entry."
       $(widgetFile "error")
 
