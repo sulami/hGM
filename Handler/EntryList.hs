@@ -6,5 +6,7 @@ getEntryListR :: Handler Html
 getEntryListR = do
   user <- requireAuthId
   entries <- runDB $ selectList [EntryOwnerId ==. user] [Asc EntryId]
-  defaultLayout $(widgetFile "entries")
+  defaultLayout $ do
+    setTitle "Entries"
+    $(widgetFile "entries")
 
