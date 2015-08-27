@@ -22,15 +22,21 @@ rollIO f = do
   return rv
 
 -- | Use the system-wide RNG to use any of the pure functions with a parameter.
-roll1IO :: (StdGen -> b -> a) -> b -> IO a
-roll1IO f p0 = do g <- getStdGen
-                  return $ f g p0
+roll1IO :: (StdGen -> b -> (a, StdGen)) -> b -> IO a
+roll1IO f p0 = do
+  rng <- getStdGen
+  let (rv, nrng) = f rng p0
+  setStdGen nrng
+  return rv
 
 -- | Use the system-wide RNG to use any of the pure functions with two
 -- parameters.
-roll2IO :: (StdGen -> c -> b -> a) -> c -> b -> IO a
-roll2IO f p0 p1 = do g <- getStdGen
-                     return $ f g p0 p1
+roll2IO :: (StdGen -> c -> b -> (a, StdGen)) -> c -> b -> IO a
+roll2IO f p0 p1 = do
+  rng <- getStdGen
+  let (rv, nrng) = f rng p0 p1
+  setStdGen nrng
+  return rv
 
 -- | Roll a single die with d sides.
 roll :: StdGen -> Int -> (Int, StdGen)
