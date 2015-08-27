@@ -38,6 +38,7 @@ library
                      Handler.EntryList
                      Handler.EntryEdit
                      Handler.EntryDel
+                     Handler.Dice
                      Game.DnD.GM.Dice
                      Game.DnD.GM.Entry
 

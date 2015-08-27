@@ -2,6 +2,8 @@
 
 <button onClick="location.href = '@{EntriesR EntryListR}';" class="ui button">
   Entries (#{numEntries})
+<button onClick="location.href = '@{DiceR}';" class="ui button">
+  Dice
 
 <button onClick="location.href = '@{AuthR LogoutR}';" class="ui negative button">
   Logout
