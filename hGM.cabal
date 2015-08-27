@@ -39,7 +39,7 @@ library
                      Handler.EntryEdit
                      Handler.EntryDel
                      Handler.Dice
-                     Handler.D20
+                     Handler.DiceRoll
                      Game.DnD.GM.Dice
                      Game.DnD.GM.Entry
 

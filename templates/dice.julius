@@ -1,5 +1,43 @@
-function rollDie(){
-  xmlhttp.open("GET","/api/d20",true);
-  xmlhttp.send();
-};
+$(document).ready(function(){
+    $("button#d20").click(function(){
+        $.ajax({url: "/api/dice/roll/1/20", success: function(result){
+            $("div#d20").html(result);
+        }});
+    });
+});
+$(document).ready(function(){
+    $("button#d12").click(function(){
+        $.ajax({url: "/api/dice/roll/1/12", success: function(result){
+            $("div#d12").html(result);
+        }});
+    });
+});
+$(document).ready(function(){
+    $("button#d10").click(function(){
+        $.ajax({url: "/api/dice/roll/1/10", success: function(result){
+            $("div#d10").html(result);
+        }});
+    });
+});
+$(document).ready(function(){
+    $("button#d8").click(function(){
+        $.ajax({url: "/api/dice/roll/1/8", success: function(result){
+            $("div#d8").html(result);
+        }});
+    });
+});
+$(document).ready(function(){
+    $("button#d6").click(function(){
+        $.ajax({url: "/api/dice/roll/1/6", success: function(result){
+            $("div#d6").html(result);
+        }});
+    });
+});
+$(document).ready(function(){
+    $("button#d4").click(function(){
+        $.ajax({url: "/api/dice/roll/1/4", success: function(result){
+            $("div#d4").html(result);
+        }});
+    });
+});
 

@@ -38,7 +38,7 @@ import Handler.EntryList
 import Handler.EntryEdit
 import Handler.EntryDel
 import Handler.Dice
-import Handler.D20
+import Handler.DiceRoll
 
 import Game.DnD.GM.Dice (initializeIO)
 

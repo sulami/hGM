@@ -13,4 +13,4 @@
   /del/#EntryId         EntryDelR   GET
 /dice                 DiceR       GET
 /api                  ApiR:
-  /dice/d20         D20R        GET
+  /dice/roll/#Int/#Int  DiceRollR   GET
