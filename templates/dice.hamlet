@@ -1,34 +1,10 @@
 <h1>Dice
 
-<div .ui .list>
-  <div .item>
-    <button .ui .basic .button #d20>
-      <i .icon .cube>
-      D20
-    <div .ui .message .right .attached #d20>
-  <div .item>
-    <button .ui .basic .button #d12>
-      <i .icon .cube>
-      D12
-    <div .ui .message .right .attached #d12>
-  <div .item>
-    <button .ui .basic .button #d10>
-      <i .icon .cube>
-      D10
-    <div .ui .message .right .attached #d10>
-  <div .item>
-    <button .ui .basic .button #d8>
-      <i .icon .cube>
-      D8
-    <div .ui .message .right .attached #d8>
-  <div .item>
-    <button .ui .basic .button #d6>
-      <i .icon .cube>
-      D6
-    <div .ui .message .right .attached #d6>
-  <div .item>
-    <button .ui .basic .button #d4>
-      <i .icon .cube>
-      D4
-    <div .ui .message .right .attached #d4>
-
+$forall die <- dice
+  <script> $(document).ready(function(){ $("button#d#{die}").click(function(){ $.ajax({url: "/api/dice/roll/1/#{die}", success: function(result){ $("div#d#{die}").html(result); }}); }); });
+  <div .ui .list>
+    <div .item>
+      <button .ui .basic .button #d#{die}>
+        <i .icon .cube>
+        #{die}
+      <div .ui .message .right .attached #d#{die}>

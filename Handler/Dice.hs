@@ -7,5 +7,6 @@ getDiceR = do
   _ <- requireAuthId
   defaultLayout $ do
     setTitle "Dice"
+    let dice = [20,12,10,8,6,4] :: [Int]
     $(widgetFile "dice")
 
