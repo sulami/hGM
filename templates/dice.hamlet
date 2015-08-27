@@ -15,4 +15,9 @@ $forall die <- dice
             <div .item data-value="#{num}">
               #{num}
       <div .ui .message .right .attached #d#{die}>
-  <script>$('.ui.dropdown') .dropdown() ;
+
+<script>$('.ui.dropdown') .dropdown() ;
+
+<button onClick="location.href = '@{HomeR}';" class="ui button">
+  Home
+
