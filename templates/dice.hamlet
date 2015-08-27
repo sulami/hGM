@@ -1,2 +1,28 @@
-dice.
+<h1>Dice
+
+<div .ui .list>
+  <div .item>
+    <button .ui .basic .button>
+      <i .icon .cube>
+      D20
+  <div .item>
+    <button .ui .basic .button>
+      <i .icon .cube>
+      D12
+  <div .item>
+    <button .ui .basic .button>
+      <i .icon .cube>
+      D10
+  <div .item>
+    <button .ui .basic .button>
+      <i .icon .cube>
+      D8
+  <div .item>
+    <button .ui .basic .button>
+      <i .icon .cube>
+      D6
+  <div .item>
+    <button .ui .basic .button onClick="rollDie()">
+      <i .icon .cube>
+      D4
 

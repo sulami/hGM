@@ -1,0 +1,5 @@
+function rollDie(){
+  xmlhttp.open("GET","/api/d20",true);
+  xmlhttp.send();
+};
+

@@ -10,5 +10,7 @@
   /new                  NewEntryR   GET POST
   /edit/#EntryId        EntryEditR  GET POST
   /view/#EntryId        EntryR      GET
-  /del/#EntryId         EntryDelR  GET
+  /del/#EntryId         EntryDelR   GET
 /dice                 DiceR       GET
+/api                  ApiR:
+  /dice/d20         D20R        GET
