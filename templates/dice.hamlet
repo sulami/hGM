@@ -7,4 +7,12 @@ $forall die <- dice
       <button .ui .basic .button #d#{die}>
         <i .icon .cube>
         #{die}
+      <div .ui .selection .dropdown>
+        <i .dropdown .icon>
+        <div .default .text>Number
+        <div .menu .transition .hidden>
+          $forall num <- numDice
+            <div .item data-value="#{num}">
+              #{num}
       <div .ui .message .right .attached #d#{die}>
+  <script>$('.ui.dropdown') .dropdown() ;

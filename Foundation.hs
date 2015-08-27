@@ -68,7 +68,6 @@ instance Yesod App where
 
         pc <- widgetToPageContent $ do
             addStylesheetRemote "//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.8/semantic.min.css"
-            addScriptRemote "//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"
             $(widgetFile "default-layout")
         withUrlRenderer $(hamletFile "templates/default-layout-wrapper.hamlet")
 
