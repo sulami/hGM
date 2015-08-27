@@ -1,9 +1,9 @@
-module Handler.Entries where
+module Handler.EntryList where
 
 import Import
 
-getEntriesR :: Handler Html
-getEntriesR = do
+getEntryListR :: Handler Html
+getEntryListR = do
   user <- requireAuthId
   entries <- runDB $ selectList [EntryOwnerId ==. user] [Asc EntryId]
   defaultLayout $(widgetFile "entries")

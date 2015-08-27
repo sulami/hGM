@@ -44,7 +44,7 @@ postEntryEditR entryId = do
         FormSuccess entryData -> do
           runDB $ replace entryId entryData
           setMessage $ toHtml $ entryName entry <> " saved"
-          redirect $ EntryR entryId
+          redirect $ EntriesR $ EntryR entryId
         _ -> defaultLayout $ do
           setMessage "Permission denied."
           $(widgetFile "error")

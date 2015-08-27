@@ -18,7 +18,7 @@ postNewEntryR = do
     FormSuccess entry -> do
       entryId <- runDB $ insert entry
       setMessage $ toHtml $ entryName entry <> " created"
-      redirect $ EntryR entryId
+      redirect $ EntriesR $ EntryR entryId
     _ -> defaultLayout $ do
       setMessage "Error creating entry."
       $(widgetFile "error")

@@ -1,6 +1,6 @@
 <h1>Welcome!
 
-<button onClick="location.href = '@{EntriesR}';" class="ui button">
+<button onClick="location.href = '@{EntriesR EntryListR}';" class="ui button">
   Entries (#{numEntries})
 
 <button onClick="location.href = '@{AuthR LogoutR}';" class="ui negative button">

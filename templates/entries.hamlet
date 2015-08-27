@@ -5,8 +5,8 @@ $else
   <div .ui .list>
     $forall Entity entryId entry <- entries
       <div .item>
-        <a href=@{EntryR entryId}> #{entryName entry}
+        <a href=@{EntriesR (EntryR entryId)}> #{entryName entry}
 
-<button onClick="location.href = '@{NewEntryR}';" class="ui button">New Entry
+<button onClick="location.href = '@{EntriesR NewEntryR}';" class="ui button">New Entry
 <button onClick="location.href = '@{HomeR}';" class="ui button">Home
 

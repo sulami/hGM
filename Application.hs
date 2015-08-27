@@ -34,7 +34,7 @@ import Handler.Common
 import Handler.Home
 import Handler.Entry
 import Handler.NewEntry
-import Handler.Entries
+import Handler.EntryList
 import Handler.EntryEdit
 import Handler.EntryDel
 

@@ -3,5 +3,5 @@
 <form method=post enctype=#{enctype} class="ui form">
   ^{entryWidget}
   <input type=submit class="positive ui button" value="Save">
-  <button type="button" onClick="location.href = '@{EntriesR}';" class="negative ui button">Cancel
+  <button type="button" onClick="location.href = '@{EntriesR EntryListR}';" class="negative ui button">Cancel
 

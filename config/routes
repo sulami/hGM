@@ -5,8 +5,9 @@
 /robots.txt RobotsR GET
 
 /                      HomeR      GET
-/entries               EntriesR   GET
-/entries/new           NewEntryR  GET POST
-/entries/edit/#EntryId EntryEditR GET POST
-/entries/view/#EntryId EntryR     GET
-/entry/del/#EntryId    EntryDelR  GET
+/entries               EntriesR:
+  /                      EntryListR GET
+  /new                   NewEntryR  GET POST
+  /edit/#EntryId         EntryEditR GET POST
+  /view/#EntryId         EntryR     GET
+  /del/#EntryId          EntryDelR  GET
