@@ -12,13 +12,16 @@
 
   <div .item>
     <button onClick="location.href = '@{EntriesR AddCampaignR}';" class="ui button positive">
+      <i .icon .plus>
       New Campaign
 
 <h3>Utility
 <div .ui .list .horizontal>
   <div .item>
     <button onClick="location.href = '@{DiceR}';" class="ui button">
+      <i .icon .cubes>
       Dice
   <div .item>
     <button onClick="location.href = '@{AuthR LogoutR}';" class="ui negative button">
+      <i .icon .sign .out>
       Logout

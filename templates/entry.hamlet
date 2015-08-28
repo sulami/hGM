@@ -11,6 +11,10 @@
   #{entryContent entry}
 
 <div .buttons>
-  <button onClick="location.href = '@{EntriesR (EntryEditR entryId)}';" class="ui button">Edit
-  <button onClick="location.href = '@{EntriesR (EntryDelR entryId)}';" class="negative ui button">Delete
+  <button onClick="location.href = '@{EntriesR (EntryEditR entryId)}';" class="ui button">
+    <i .icon .write>
+    Edit
+  <button onClick="location.href = '@{EntriesR (EntryDelR entryId)}';" class="negative ui button">
+    <i .icon .remove>
+    Delete
 
