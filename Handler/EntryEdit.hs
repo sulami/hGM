@@ -43,7 +43,7 @@ postEntryEditR entryId = do
       case res of
         FormSuccess entryData -> do
           runDB $ replace entryId entryData
-          setMessage $ toHtml $ entryName entry <> " saved"
+          setMessage $ toHtml $ entryName entryData <> " saved"
           redirect $ EntriesR $ EntryR entryId
         _ -> defaultLayout $ do
           setMessage "Permission denied."
