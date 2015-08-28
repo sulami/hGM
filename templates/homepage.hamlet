@@ -7,7 +7,7 @@
 $forall Entity campid camp <- camps
   <button onClick="location.href = '@{EntriesR (EntryListR campid)}';" class="ui button">
     #{campaignName camp}
-<button onClick="location.href = '@{DiceR}';" class="ui button">
+<button onClick="location.href = '@{EntriesR AddCampaignR}';" class="ui button">
   New Campaign
 <button onClick="location.href = '@{DiceR}';" class="ui button">
   Dice

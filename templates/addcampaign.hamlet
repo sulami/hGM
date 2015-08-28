@@ -1,0 +1,13 @@
+<h1>New Campaign
+
+<div .ui .breadcrumb>
+  <a .section href="@{HomeR}">Home
+  <i .right .chevron .icon .divider>
+  <a .section href="@{EntriesR AddCampaignR}">New Campaign
+
+<form method=post enctype=#{enctype} class="ui form">
+  ^{campaignWidget}
+  <input type=submit class="positive ui button" value="Save">
+  <button type="button" onClick="location.href = '@{HomeR}';" class="negative ui button">Cancel
+
+

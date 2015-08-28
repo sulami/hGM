@@ -40,6 +40,7 @@ library
                      Handler.EntryDel
                      Handler.Dice
                      Handler.DiceRoll
+                     Handler.AddCampaign
                      Game.DnD.GM.Dice
                      Game.DnD.GM.Entry
 
