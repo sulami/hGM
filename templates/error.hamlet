@@ -1,2 +1,10 @@
-<h1>Error
+<h1>Something went wrong...
+
+<div .ui .breadcrumb>
+  <a .section href="@{HomeR}">Home
+  <i .right .chevron .icon .divider>
+  <a .section href=".">Error
+
+<div .segment>
+  We are deeply sorry.
 
