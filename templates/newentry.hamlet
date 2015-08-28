@@ -3,12 +3,12 @@
 <div .ui .breadcrumb>
   <a .section href="@{HomeR}">Home
   <i .right .chevron .icon .divider>
-  <a .section href="@{EntriesR EntryListR}">Entries
+  <a .section href="@{EntriesR (EntryListR cid)}">Entries
   <i .right .chevron .icon .divider>
-  <a .section href="@{EntriesR NewEntryR}">New Entry
+  <a .section href="@{EntriesR (NewEntryR cid)}">New Entry
 
 <form method=post enctype=#{enctype} class="ui form">
   ^{entryWidget}
   <input type=submit class="positive ui button" value="Save">
-  <button type="button" onClick="location.href = '@{EntriesR EntryListR}';" class="negative ui button">Cancel
+  <button type="button" onClick="location.href = '@{EntriesR (EntryListR cid)}';" class="negative ui button">Cancel
 

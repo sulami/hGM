@@ -5,7 +5,7 @@ import Import
 getHomeR :: Handler Html
 getHomeR = do
   user <- requireAuthId
-  numEntries <- runDB $ count [EntryOwnerId ==. user]
+  camps <- runDB $ selectList [CampaignOwnerId ==. user] [Asc CampaignName]
   defaultLayout $ do
     setTitle "Home"
     $(widgetFile "homepage")

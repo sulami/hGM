@@ -4,23 +4,24 @@ import Import
 
 import Yesod.Text.Markdown
 
-entryForm :: UserId -> Form Entry
-entryForm user = renderSemantic $ Entry
+entryForm :: CampaignId -> Form Entry
+entryForm camp = renderSemantic $ Entry
   <$> areq textField "Title" Nothing
   <*> areq markdownField "Content" Nothing
-  <*> pure user
+  <*> pure camp
 
 prepEntryForm :: Entry -> Form Entry
 prepEntryForm entry = renderSemantic $ Entry
   <$> areq textField "Title" (Just $ entryName entry)
   <*> areq markdownField "Content" (Just $ entryContent entry)
-  <*> (pure $ entryOwnerId entry)
+  <*> (pure $ entryCampaignId entry)
 
 getEntryEditR :: EntryId -> Handler Html
 getEntryEditR entryId = do
   user <- requireAuthId
   entry <- runDB $ get404 entryId
-  if user /= entryOwnerId entry
+  camp <- runDB $ get404 $ entryCampaignId entry
+  if user /= campaignOwnerId camp
     then do
       setMessage "Permission denied."
       defaultLayout $ $(widgetFile "error")
@@ -33,9 +34,10 @@ getEntryEditR entryId = do
 postEntryEditR :: EntryId -> Handler Html
 postEntryEditR entryId = do
   user <- requireAuthId
-  ((res,_), _) <- runFormPost $ entryForm user
   entry <- runDB $ get404 entryId
-  if user /= entryOwnerId entry
+  camp <- runDB $ get404 $ entryCampaignId entry
+  ((res,_), _) <- runFormPost $ entryForm $ entryCampaignId entry
+  if user /= campaignOwnerId camp
     then do
       setMessage "Permission denied."
       defaultLayout $ $(widgetFile "error")

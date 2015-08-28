@@ -8,9 +8,13 @@ Email
     user UserId Maybe
     verkey Text Maybe
     UniqueEmail email
+Campaign
+    name Text
+    ownerId UserId
+    deriving
 Entry
     name Text
     content Markdown
-    ownerId UserId
+    campaignId CampaignId
     deriving
 

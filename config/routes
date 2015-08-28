@@ -4,13 +4,13 @@
 /favicon.ico FaviconR GET
 /robots.txt RobotsR GET
 
-/                     HomeR       GET
+/                     HomeR         GET
 /entries              EntriesR:
-  /                     EntryListR  GET
-  /new                  NewEntryR   GET POST
-  /edit/#EntryId        EntryEditR  GET POST
-  /view/#EntryId        EntryR      GET
-  /del/#EntryId         EntryDelR   GET
-/dice                 DiceR       GET
+  /#CampaignId          EntryListR    GET
+  /new/#CampaignId      NewEntryR     GET POST
+  /edit/#EntryId        EntryEditR    GET POST
+  /view/#EntryId        EntryR        GET
+  /del/#EntryId         EntryDelR     GET
+/dice                 DiceR         GET
 /api                  ApiR:
-  /dice/roll/#Int/#Int  DiceRollR   GET
+  /dice/roll/#Int/#Int  DiceRollR     GET

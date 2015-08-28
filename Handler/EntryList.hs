@@ -2,10 +2,11 @@ module Handler.EntryList where
 
 import Import
 
-getEntryListR :: Handler Html
-getEntryListR = do
+getEntryListR :: CampaignId -> Handler Html
+getEntryListR cid = do
   user <- requireAuthId
-  entries <- runDB $ selectList [EntryOwnerId ==. user] [Asc EntryId]
+  camp <- runDB $ get404 cid
+  entries <- runDB $ selectList [EntryCampaignId ==. cid] [Asc EntryId]
   defaultLayout $ do
     setTitle "Entries"
     $(widgetFile "entries")
