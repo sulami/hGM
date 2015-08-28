@@ -1,5 +1,8 @@
-flags: {}
+flags:
+  hGM:
+    library-only: false
+    dev: false
 packages:
 - '.'
 extra-deps: []
-resolver: lts-3.1
+resolver: lts-3.2
