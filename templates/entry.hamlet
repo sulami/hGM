@@ -3,7 +3,7 @@
 <div .ui .breadcrumb>
   <a .section href="@{HomeR}">Home
   <i .right .chevron .icon .divider>
-  <a .section href="@{EntriesR (EntryListR (entryCampaignId entry))}">Entries
+  <a .section href="@{EntriesR (EntryListR (entryCampaignId entry))}">#{campaignName camp}
   <i .right .chevron .icon .divider>
   <a .section href="@{EntriesR (EntryR entryId)}">#{entryName entry}
 

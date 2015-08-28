@@ -1,9 +1,9 @@
-<h1>Entries
+<h1>#{campaignName camp}
 
 <div .ui .breadcrumb>
   <a .section href="@{HomeR}">Home
   <i .right .chevron .icon .divider>
-  <a .section href="@{EntriesR (EntryListR cid)}">Entries
+  <a .section href="@{EntriesR (EntryListR cid)}">#{campaignName camp}
 
 $if null entries
   <p>Empty!

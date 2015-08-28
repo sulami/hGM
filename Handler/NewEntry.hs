@@ -7,7 +7,7 @@ import Handler.EntryEdit (entryForm)
 getNewEntryR :: CampaignId -> Handler Html
 getNewEntryR cid = do
   _ <- requireAuthId
-  _ <- runDB $ get404 cid
+  camp <- runDB $ get404 cid
   (entryWidget, enctype) <- generateFormPost $ entryForm cid
   defaultLayout $(widgetFile "newentry")
 
