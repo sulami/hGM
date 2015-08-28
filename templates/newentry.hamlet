@@ -6,7 +6,6 @@
   <a .section href="@{EntriesR EntryListR}">Entries
   <i .right .chevron .icon .divider>
   <a .section href="@{EntriesR NewEntryR}">New Entry
-<div .ui .divider .hidden>
 
 <form method=post enctype=#{enctype} class="ui form">
   ^{entryWidget}

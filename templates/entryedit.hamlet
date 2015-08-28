@@ -8,7 +8,6 @@
   <a .section href="@{EntriesR (EntryR entryId)}">#{entryName entry}
   <i .right .chevron .icon .divider>
   <a .section href="@{EntriesR (EntryEditR entryId)}">Edit
-<div .ui .divider .hidden>
 
 <form method=post enctype=#{enctype} class="ui form">
   ^{entryWidget}

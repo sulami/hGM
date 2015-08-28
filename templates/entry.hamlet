@@ -6,9 +6,9 @@
   <a .section href="@{EntriesR EntryListR}">Entries
   <i .right .chevron .icon .divider>
   <a .section href="@{EntriesR (EntryR entryId)}">#{entryName entry}
-<div .ui .divider .hidden>
 
-<div>#{entryContent entry}
+<div .ui .segment>
+  #{entryContent entry}
 
 <div .buttons>
   <button onClick="location.href = '@{EntriesR (EntryEditR entryId)}';" class="ui button">Edit

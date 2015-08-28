@@ -4,7 +4,6 @@
   <a .section href="@{HomeR}">Home
   <i .right .chevron .icon .divider>
   <a .section href="@{EntriesR EntryListR}">Entries
-<div .ui .divider .hidden>
 
 $if null entries
   <p>Empty!
