@@ -41,6 +41,7 @@ library
                      Handler.Dice
                      Handler.DiceRoll
                      Handler.AddCampaign
+                     Handler.DelCampaign
                      Game.DnD.GM.Dice
                      Game.DnD.GM.Entry
 

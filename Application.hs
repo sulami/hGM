@@ -40,6 +40,7 @@ import Handler.EntryDel
 import Handler.Dice
 import Handler.DiceRoll
 import Handler.AddCampaign
+import Handler.DelCampaign
 
 import Game.DnD.GM.Dice (initializeIO)
 
