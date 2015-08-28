@@ -2,15 +2,23 @@
 
 <div .ui .breadcrumb>
   <a .section href="@{HomeR}">Home
-<div .ui .divider .hidden>
 
-$forall Entity campid camp <- camps
-  <button onClick="location.href = '@{EntriesR (EntryListR campid)}';" class="ui button">
-    #{campaignName camp}
-<button onClick="location.href = '@{EntriesR AddCampaignR}';" class="ui button">
-  New Campaign
-<button onClick="location.href = '@{DiceR}';" class="ui button">
-  Dice
+<h3>Campaigns
+<div .ui .list .horizontal>
+  $forall Entity campid camp <- camps
+    <div .item>
+      <button onClick="location.href = '@{EntriesR (EntryListR campid)}';" class="ui button">
+        #{campaignName camp}
 
-<button onClick="location.href = '@{AuthR LogoutR}';" class="ui negative button">
-  Logout
+  <div .item>
+    <button onClick="location.href = '@{EntriesR AddCampaignR}';" class="ui button positive">
+      New Campaign
+
+<h3>Utility
+<div .ui .list .horizontal>
+  <div .item>
+    <button onClick="location.href = '@{DiceR}';" class="ui button">
+      Dice
+  <div .item>
+    <button onClick="location.href = '@{AuthR LogoutR}';" class="ui negative button">
+      Logout
