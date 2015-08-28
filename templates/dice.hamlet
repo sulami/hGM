@@ -1,5 +1,11 @@
 <h1>Dice
 
+<div .ui .breadcrumb>
+  <a .section href="@{HomeR}">Home
+  <i .right .chevron .icon .divider>
+  <a .section href="@{DiceR}">Dice
+<div .ui .divider .hidden>
+
 $forall die <- dice
   <script> $(document).ready(function(){ $("button#d#{die}").click(function(){ $.ajax({url: "/api/dice/roll/1/#{die}", success: function(result){ $("div#d#{die}").html(result); }}); }); });
   <div .ui .list>
@@ -17,7 +23,4 @@ $forall die <- dice
       <div .ui .message .right .attached #d#{die}>
 
 <script>$('.ui.dropdown') .dropdown() ;
-
-<button onClick="location.href = '@{HomeR}';" class="ui button">
-  Home
 

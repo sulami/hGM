@@ -1,5 +1,9 @@
 <h1>Welcome!
 
+<div .ui .breadcrumb>
+  <a .section href="@{HomeR}">Home
+<div .ui .divider .hidden>
+
 <button onClick="location.href = '@{EntriesR EntryListR}';" class="ui button">
   Entries (#{numEntries})
 <button onClick="location.href = '@{DiceR}';" class="ui button">

@@ -1,10 +1,16 @@
 <h1>#{entryName entry}
+
+<div .ui .breadcrumb>
+  <a .section href="@{HomeR}">Home
+  <i .right .chevron .icon .divider>
+  <a .section href="@{EntriesR EntryListR}">Entries
+  <i .right .chevron .icon .divider>
+  <a .section href="@{EntriesR (EntryR entryId)}">#{entryName entry}
+<div .ui .divider .hidden>
+
 <div>#{entryContent entry}
 
-<div .ui .hidden .divider>
-
-<button onClick="location.href = '@{EntriesR (EntryEditR entryId)}';" class="ui button">Edit
-<button onClick="location.href = '@{EntriesR EntryListR}';" class="ui button">Back
-
-<button onClick="location.href = '@{EntriesR (EntryDelR entryId)}';" class="negative ui button">Delete
+<div .buttons>
+  <button onClick="location.href = '@{EntriesR (EntryEditR entryId)}';" class="ui button">Edit
+  <button onClick="location.href = '@{EntriesR (EntryDelR entryId)}';" class="negative ui button">Delete
 

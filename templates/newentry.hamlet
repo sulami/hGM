@@ -1,5 +1,13 @@
 <h1>New Entry
 
+<div .ui .breadcrumb>
+  <a .section href="@{HomeR}">Home
+  <i .right .chevron .icon .divider>
+  <a .section href="@{EntriesR EntryListR}">Entries
+  <i .right .chevron .icon .divider>
+  <a .section href="@{EntriesR NewEntryR}">New Entry
+<div .ui .divider .hidden>
+
 <form method=post enctype=#{enctype} class="ui form">
   ^{entryWidget}
   <input type=submit class="positive ui button" value="Save">

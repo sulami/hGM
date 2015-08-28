@@ -1,4 +1,11 @@
 <h1>Entries
+
+<div .ui .breadcrumb>
+  <a .section href="@{HomeR}">Home
+  <i .right .chevron .icon .divider>
+  <a .section href="@{EntriesR EntryListR}">Entries
+<div .ui .divider .hidden>
+
 $if null entries
   <p>Empty!
 $else
@@ -8,5 +15,4 @@ $else
         <a href=@{EntriesR (EntryR entryId)}> #{entryName entry}
 
 <button onClick="location.href = '@{EntriesR NewEntryR}';" class="ui button">New Entry
-<button onClick="location.href = '@{HomeR}';" class="ui button">Home
 
