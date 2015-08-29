@@ -3,7 +3,7 @@
 <div .ui .breadcrumb>
   <a .section href="@{HomeR}">Home
   <i .right .chevron .icon .divider>
-  <a .section href="@{EntriesR AddCampaignR}">New Campaign
+  <a .section href="@{EntriesR CampaignNewR}">New Campaign
 
 <form method=post enctype=#{enctype} class="ui form">
   ^{campaignWidget}

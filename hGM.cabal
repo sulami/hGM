@@ -34,14 +34,14 @@ library
                      Handler.Common
                      Handler.Home
                      Handler.Entry
-                     Handler.NewEntry
+                     Handler.EntryNew
                      Handler.EntryList
                      Handler.EntryEdit
                      Handler.EntryDel
                      Handler.Dice
                      Handler.DiceRoll
-                     Handler.AddCampaign
-                     Handler.DelCampaign
+                     Handler.CampaignNew
+                     Handler.CampaignDel
                      Game.DnD.GM.Dice
                      Game.DnD.GM.Entry
 

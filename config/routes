@@ -6,10 +6,10 @@
 
 /                     HomeR         GET
 /entries              EntriesR:
-  /campaign/new         AddCampaignR  GET POST
-  /campaign/del/#CampaignId DelCampaignR GET
+  /camp/new             CampaignNewR  GET POST
+  /camp/del/#CampaignId CampaignDelR  GET
   /#CampaignId          EntryListR    GET
-  /new/#CampaignId      NewEntryR     GET POST
+  /new/#CampaignId      EntryNewR     GET POST
   /edit/#EntryId        EntryEditR    GET POST
   /view/#EntryId        EntryR        GET
   /del/#EntryId         EntryDelR     GET

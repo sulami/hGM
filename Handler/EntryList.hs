@@ -9,5 +9,5 @@ getEntryListR cid = do
   entries <- runDB $ selectList [EntryCampaignId ==. cid] [Asc EntryId]
   defaultLayout $ do
     setTitle "Entries"
-    $(widgetFile "entries")
+    $(widgetFile "entrylist")
 

@@ -5,7 +5,7 @@
   <i .right .chevron .icon .divider>
   <a .section href="@{EntriesR (EntryListR cid)}">#{campaignName camp}
   <i .right .chevron .icon .divider>
-  <a .section href="@{EntriesR (NewEntryR cid)}">New Entry
+  <a .section href="@{EntriesR (EntryNewR cid)}">New Entry
 
 <form method=post enctype=#{enctype} class="ui form">
   ^{entryWidget}

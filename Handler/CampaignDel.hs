@@ -1,9 +1,9 @@
-module Handler.DelCampaign where
+module Handler.CampaignDel where
 
 import Import
 
-getDelCampaignR :: CampaignId -> Handler Html
-getDelCampaignR cid = do
+getCampaignDelR :: CampaignId -> Handler Html
+getCampaignDelR cid = do
   user <- requireAuthId
   camp <- runDB $ get404 cid
   if user /= campaignOwnerId camp

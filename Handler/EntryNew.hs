@@ -1,18 +1,18 @@
-module Handler.NewEntry where
+module Handler.EntryNew where
 
 import Import
 
 import Handler.EntryEdit (entryForm)
 
-getNewEntryR :: CampaignId -> Handler Html
-getNewEntryR cid = do
+getEntryNewR :: CampaignId -> Handler Html
+getEntryNewR cid = do
   _ <- requireAuthId
   camp <- runDB $ get404 cid
   (entryWidget, enctype) <- generateFormPost $ entryForm cid
-  defaultLayout $(widgetFile "newentry")
+  defaultLayout $(widgetFile "entrynew")
 
-postNewEntryR :: CampaignId -> Handler Html
-postNewEntryR cid = do
+postEntryNewR :: CampaignId -> Handler Html
+postEntryNewR cid = do
   _ <- requireAuthId
   ((res,_), _) <- runFormPost $ entryForm cid
   case res of

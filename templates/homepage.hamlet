@@ -11,7 +11,7 @@
         #{campaignName camp}
 
   <div .item>
-    <button onClick="location.href = '@{EntriesR AddCampaignR}';" class="ui button positive">
+    <button onClick="location.href = '@{EntriesR CampaignNewR}';" class="ui button positive">
       <i .icon .plus>
       New Campaign
 

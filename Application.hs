@@ -33,14 +33,14 @@ import System.Log.FastLogger                (defaultBufSize, newStdoutLoggerSet,
 import Handler.Common
 import Handler.Home
 import Handler.Entry
-import Handler.NewEntry
+import Handler.EntryNew
 import Handler.EntryList
 import Handler.EntryEdit
 import Handler.EntryDel
 import Handler.Dice
 import Handler.DiceRoll
-import Handler.AddCampaign
-import Handler.DelCampaign
+import Handler.CampaignNew
+import Handler.CampaignDel
 
 import Game.DnD.GM.Dice (initializeIO)
 

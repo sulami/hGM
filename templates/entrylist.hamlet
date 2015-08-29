@@ -13,10 +13,10 @@ $else
       <div .item>
         <a href=@{EntriesR (EntryR entryId)}> #{entryName entry}
 
-<button onClick="location.href = '@{EntriesR (NewEntryR cid)}';" class="ui button positive">
+<button onClick="location.href = '@{EntriesR (EntryNewR cid)}';" class="ui button positive">
   <i .icon .plus>
   New Entry
-<button onClick="location.href = '@{EntriesR (DelCampaignR cid)}';" class="ui button negative">
+<button onClick="location.href = '@{EntriesR (CampaignDelR cid)}';" class="ui button negative">
   <i .icon .remove>
   Delete Campaign
 

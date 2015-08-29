@@ -1,4 +1,4 @@
-module Handler.AddCampaign where
+module Handler.CampaignNew where
 
 import Import
 
@@ -9,16 +9,16 @@ campaignForm user = renderSemantic $ Campaign
   <$> areq textField "Name" Nothing
   <*> pure user
 
-getAddCampaignR :: Handler Html
-getAddCampaignR = do
+getCampaignNewR :: Handler Html
+getCampaignNewR = do
   user <- requireAuthId
   (campaignWidget, enctype) <- generateFormPost $ campaignForm user
   defaultLayout $ do
     setTitle "New Campaign"
-    $(widgetFile "addcampaign")
+    $(widgetFile "campaignnew")
 
-postAddCampaignR :: Handler Html
-postAddCampaignR = do
+postCampaignNewR :: Handler Html
+postCampaignNewR = do
   user <- requireAuthId
   ((res,_), _) <- runFormPost $ campaignForm user
   case res of
