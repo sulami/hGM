@@ -5,6 +5,7 @@
   <i .right .chevron .icon .divider>
   <a .section href="@{EntriesR (EntryListR cid)}">#{campaignName camp}
 
+<h3>Entries
 $if null entries
   <p>Empty!
 $else
