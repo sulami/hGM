@@ -7,20 +7,17 @@
 <div .ui .divider .hidden>
 
 $forall die <- dice
-  <script> $(document).ready(function(){ $("button#d#{die}").click(function(){ $.ajax({url: "/api/dice/roll/1/#{die}", success: function(result){ $("div#d#{die}").html(result); }}); }); });
-  <div .ui .list>
+  <script> $(document).ready(function(){ $("button#d#{die}").click(function(){ $.ajax({url: "/api/dice/roll/1/#{die}", success: function(result){ $("div#diceresult").prepend('<span style="color:#999">[d#{die}]</span> ' + result + '<br />'); }}); }); });
+  <div .ui .list .horizontal>
     <div .item>
       <button .ui .basic .button #d#{die}>
         <i .icon .cube>
-        #{die}
-      <div .ui .selection .dropdown>
-        <i .dropdown .icon>
-        <div .default .text>Number
-        <div .menu .transition .hidden>
-          $forall num <- numDice
-            <div .item data-value="#{num}">
-              #{num}
-      <div .ui .message .right .attached #d#{die}>
+        d#{die}
+<button .ui .button .negative onClick="$('div#diceresult').empty()">
+  <i .icon .delete>
+  Clear
+
+<div .ui .message #diceresult style="max-height: 115px; overflow-y: hidden">
 
 <script>$('.ui.dropdown') .dropdown() ;
 
