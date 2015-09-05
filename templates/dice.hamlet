@@ -6,18 +6,21 @@
   <a .section href="@{DiceR}">Dice
 <div .ui .divider .hidden>
 
-$forall die <- dice
-  <script> $(document).ready(function(){ $("button#d#{die}").click(function(){ $.ajax({url: "/api/dice/roll/1/#{die}", success: function(result){ $("div#diceresult").prepend('<span style="color:#999">[d#{die}]</span> ' + result + '<br />'); }}); }); });
-  <div .ui .list .horizontal>
+<div .ui .list .horizontal>
+  $forall die <- dice
+    <script> $(document).ready(function(){ $("button#d#{die}").click(function(){ $.ajax({url: "/api/dice/roll/1/#{die}", success: function(result){ $("div#diceresult").append('<div class="item transition hidden"><div class="ui statistic"><div class="label">d#{die}</div><div class="value">' + result + '</div></div></div>'); $("div#diceresult").children().last().transition('slide right'); }}); }); });
     <div .item>
       <button .ui .basic .button #d#{die}>
         <i .icon .cube>
         d#{die}
-<button .ui .button .negative onClick="$('div#diceresult').empty()">
-  <i .icon .delete>
-  Clear
+  <div .item>
+    <button .ui .button .negative onClick="$('div#diceresult').empty()">
+      <i .icon .delete>
+      Clear
 
-<div .ui .message #diceresult style="max-height: 115px; overflow-y: hidden">
+<div .ui .divider .hidden>
+
+<div #diceresult .ui .list .horizontal>
 
 <script>$('.ui.dropdown') .dropdown() ;
 
