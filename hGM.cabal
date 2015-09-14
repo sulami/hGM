@@ -47,26 +47,26 @@ library
 
     if flag(dev) || flag(library-only)
         cpp-options:   -DDEVELOPMENT
-        ghc-options:   -Wall -fwarn-tabs -O0
+        ghc-options:   -Wall -fwarn-tabs --disable-optimization
     else
-        ghc-options:   -Wall -fwarn-tabs -O2
+        ghc-options:   -Wall -fwarn-tabs
 
-    extensions: TemplateHaskell
-                QuasiQuotes
-                OverloadedStrings
-                NoImplicitPrelude
-                CPP
-                MultiParamTypeClasses
-                TypeFamilies
-                GADTs
-                GeneralizedNewtypeDeriving
-                FlexibleContexts
-                EmptyDataDecls
-                NoMonomorphismRestriction
-                DeriveDataTypeable
-                ViewPatterns
-                TupleSections
-                RecordWildCards
+    default-extensions: TemplateHaskell
+                        QuasiQuotes
+                        OverloadedStrings
+                        NoImplicitPrelude
+                        CPP
+                        MultiParamTypeClasses
+                        TypeFamilies
+                        GADTs
+                        GeneralizedNewtypeDeriving
+                        FlexibleContexts
+                        EmptyDataDecls
+                        NoMonomorphismRestriction
+                        DeriveDataTypeable
+                        ViewPatterns
+                        TupleSections
+                        RecordWildCards
 
     build-depends: base
                  , yesod
@@ -125,21 +125,21 @@ test-suite test
     ghc-options:       -Wall
     default-language:  Haskell2010
 
-    extensions: TemplateHaskell
-                QuasiQuotes
-                OverloadedStrings
-                NoImplicitPrelude
-                CPP
-                MultiParamTypeClasses
-                TypeFamilies
-                GADTs
-                GeneralizedNewtypeDeriving
-                FlexibleContexts
-                EmptyDataDecls
-                NoMonomorphismRestriction
-                DeriveDataTypeable
-                ViewPatterns
-                TupleSections
+    default-extensions: TemplateHaskell
+                        QuasiQuotes
+                        OverloadedStrings
+                        NoImplicitPrelude
+                        CPP
+                        MultiParamTypeClasses
+                        TypeFamilies
+                        GADTs
+                        GeneralizedNewtypeDeriving
+                        FlexibleContexts
+                        EmptyDataDecls
+                        NoMonomorphismRestriction
+                        DeriveDataTypeable
+                        ViewPatterns
+                        TupleSections
 
     build-depends: base
                  , hGM
