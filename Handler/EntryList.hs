@@ -8,6 +8,6 @@ getEntryListR cid = do
   camp <- runDB $ get404 cid
   entries <- runDB $ selectList [EntryCampaignId ==. cid] [Asc EntryId]
   defaultLayout $ do
-    setTitle "Entries"
+    setTitle . toHtml $ campaignName camp
     $(widgetFile "entrylist")
 
