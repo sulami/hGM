@@ -16,7 +16,7 @@ Entry
     name Text
     content Markdown
     campaignId CampaignId
-    inThis [CampaignId]
-    thisIn [CampaignId]
+    inThis [EntryId]
+    thisIn [EntryId]
     deriving
 

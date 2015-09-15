@@ -26,6 +26,7 @@ postEntryNewR cid = do
           inThis = filter (inEntry entry) otherEntries
           thisIn = filter (entryIn entry) otherEntries
       -- TODO add these two above to the entry before saving it
+      -- TODO modify the other affected entries as well
       -- TODO add this to entryEdit
       entryId <- runDB $ insert entry
       setMessage . toHtml $ entryName entry <> " created"
