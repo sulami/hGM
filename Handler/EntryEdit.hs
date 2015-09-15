@@ -21,9 +21,9 @@ prepEntryForm :: Entry -> Form Entry
 prepEntryForm entry = renderSemantic $ Entry
   <$> areq textField "Title" (Just $ entryName entry)
   <*> areq markdownField "Content" (Just $ entryContent entry)
-  <*> (pure $ entryCampaignId entry)
-  <*> (pure $ entryInThis entry)
-  <*> (pure $ entryThisIn entry)
+  <*> pure (entryCampaignId entry)
+  <*> pure (entryInThis entry)
+  <*> pure (entryThisIn entry)
 
 getEntryEditR :: EntryId -> Handler Html
 getEntryEditR entryId = do
