@@ -10,6 +10,14 @@
 <div .ui .segment>
   #{entryContent entry}
 
+In this:
+$forall Entity entId ent <- inThis
+  <a href="@{EntriesR (EntryR entId)}">#{entryName ent}
+
+This in:
+$forall Entity entId ent <- thisIn
+  <a href="@{EntriesR (EntryR entId)}">#{entryName ent}
+
 <div .buttons>
   <button onClick="location.href = '@{EntriesR (EntryEditR entryId)}';" class="ui button">
     <i .icon .write>
