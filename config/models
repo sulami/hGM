@@ -16,5 +16,7 @@ Entry
     name Text
     content Markdown
     campaignId CampaignId
+    inThis [CampaignId]
+    thisIn [CampaignId]
     deriving
 
