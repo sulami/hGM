@@ -21,26 +21,29 @@ postEntryNewR cid = do
   ((res,_), _) <- runFormPost $ entryForm cid
   case res of
     FormSuccess entry -> do
-      otherEntries' <- runDB $ selectList [EntryCampaignId ==. cid] []
-      let otherEntries = map entityToTuple otherEntries'
-          inThis = filter (inEntry entry) otherEntries
-          thisIn = filter (entryIn entry) otherEntries
-      -- TODO add this to entryEdit
-      -- FIXME make this a single DB query
       entryId <- runDB $ insert entry
-      runDB $ update entryId [ EntryInThis =. map fst inThis
-                             , EntryThisIn =. map fst thisIn ]
-      forM_ inThis $ \(key, _) -> do
-        old <- runDB $ get404 key
-        runDB $ update key [ EntryThisIn =. (entryId : entryThisIn old) ]
-      forM_ thisIn $ \(key, _) -> do
-        old <- runDB $ get404 key
-        runDB $ update key [ EntryInThis =. (entryId : entryInThis old) ]
+      -- TODO add this to entryEdit
+      saveEntry cid entryId entry
       setMessage . toHtml $ entryName entry <> " created"
       redirect . EntriesR $ EntryR entryId
     _ -> defaultLayout $ do
       setMessage "Error creating entry."
       $(widgetFile "error")
+
+saveEntry :: CampaignId -> EntryId -> Entry -> Handler ()
+saveEntry cid entryId entry = do
+  otherEntries' <- runDB $ selectList [EntryCampaignId ==. cid] []
+  let otherEntries = map entityToTuple otherEntries'
+      inThis = filter (inEntry entry) otherEntries
+      thisIn = filter (entryIn entry) otherEntries
+  runDB $ update entryId [ EntryInThis =. map fst inThis
+                         , EntryThisIn =. map fst thisIn ]
+  forM_ inThis $ \(key, _) -> do
+    old <- runDB $ get404 key
+    runDB $ update key [ EntryThisIn =. (entryId : entryThisIn old) ]
+  forM_ thisIn $ \(key, _) -> do
+    old <- runDB $ get404 key
+    runDB $ update key [ EntryInThis =. (entryId : entryInThis old) ]
 
 entityToTuple :: Entity a -> (Key a, a)
 entityToTuple (Entity k e) = (k, e)
