@@ -35,9 +35,19 @@ postEntryNewR cid = do
 unmarkdown :: MD.Markdown -> Text
 unmarkdown = TL.toStrict . (\(MD.Markdown e) -> e)
 
+-- Is an entry referenced in this one?
 inEntry :: Entry -> Entry -> Bool
-inEntry e = (`elem` TS.words (unmarkdown $ entryContent e)) . entryName
+inEntry e = (`textMatch` TS.words (unmarkdown $ entryContent e)) . TS.words .
+              entryName
 
+-- Is this entry referenced in another one?
 entryIn :: Entry -> Entry -> Bool
-entryIn e = elem (entryName e) . TS.words . unmarkdown . entryContent
+entryIn e = textMatch (TS.words $ entryName e) . TS.words . unmarkdown .
+              entryContent
+
+-- Match multi-word names.
+textMatch :: [Text] -> [Text] -> Bool
+textMatch [] _  = False
+textMatch _  [] = False
+textMatch s  c  = take (length s) c == s || textMatch s (drop 1 c)
 
