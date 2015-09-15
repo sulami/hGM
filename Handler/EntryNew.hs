@@ -25,12 +25,17 @@ postEntryNewR cid = do
       let otherEntries = map entityToTuple otherEntries'
           inThis = filter (inEntry entry) otherEntries
           thisIn = filter (entryIn entry) otherEntries
-      -- TODO modify the other affected entries as well
       -- TODO add this to entryEdit
       -- FIXME make this a single DB query
       entryId <- runDB $ insert entry
       runDB $ update entryId [ EntryInThis =. map fst inThis
                              , EntryThisIn =. map fst thisIn ]
+      forM_ inThis $ \(key, _) -> do
+        old <- runDB $ get404 key
+        runDB $ update key [ EntryThisIn =. (entryId : entryThisIn old) ]
+      forM_ thisIn $ \(key, _) -> do
+        old <- runDB $ get404 key
+        runDB $ update key [ EntryInThis =. (entryId : entryInThis old) ]
       setMessage . toHtml $ entryName entry <> " created"
       redirect . EntriesR $ EntryR entryId
     _ -> defaultLayout $ do

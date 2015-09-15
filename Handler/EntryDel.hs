@@ -12,6 +12,7 @@ getEntryDelR entryId = do
       setMessage "Permission denied."
       defaultLayout $ $(widgetFile "error")
     else do
+      -- TODO delete from related entries
       runDB $ delete entryId
       setMessage "Entry deleted."
       redirect HomeR
