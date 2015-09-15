@@ -24,8 +24,8 @@ postCampaignNewR = do
   case res of
     FormSuccess campaignData -> do
       camp <- runDB $ insert campaignData
-      setMessage $ toHtml $ campaignName campaignData <> " created"
-      redirect $ EntriesR $ EntryListR camp
+      setMessage . toHtml $ campaignName campaignData <> " created"
+      redirect . EntriesR $ EntryListR camp
     _ -> defaultLayout $ do
       setMessage "Error creating entry."
       $(widgetFile "error")

@@ -20,7 +20,7 @@ getEntryEditR :: EntryId -> Handler Html
 getEntryEditR entryId = do
   user <- requireAuthId
   entry <- runDB $ get404 entryId
-  camp <- runDB $ get404 $ entryCampaignId entry
+  camp <- runDB . get404 $ entryCampaignId entry
   if user /= campaignOwnerId camp
     then do
       setMessage "Permission denied."
@@ -28,15 +28,15 @@ getEntryEditR entryId = do
     else do
       (entryWidget, enctype) <- generateFormPost $ prepEntryForm entry
       defaultLayout $ do
-        setTitle $ toHtml $ entryName entry
+        setTitle . toHtml $ entryName entry
         $(widgetFile "entryedit")
 
 postEntryEditR :: EntryId -> Handler Html
 postEntryEditR entryId = do
   user <- requireAuthId
   entry <- runDB $ get404 entryId
-  camp <- runDB $ get404 $ entryCampaignId entry
-  ((res,_), _) <- runFormPost $ entryForm $ entryCampaignId entry
+  camp <- runDB . get404 $ entryCampaignId entry
+  ((res,_), _) <- runFormPost . entryForm $ entryCampaignId entry
   if user /= campaignOwnerId camp
     then do
       setMessage "Permission denied."
@@ -45,8 +45,8 @@ postEntryEditR entryId = do
       case res of
         FormSuccess entryData -> do
           runDB $ replace entryId entryData
-          setMessage $ toHtml $ entryName entryData <> " saved"
-          redirect $ EntriesR $ EntryR entryId
+          setMessage . toHtml $ entryName entryData <> " saved"
+          redirect . EntriesR $ EntryR entryId
         _ -> defaultLayout $ do
           setMessage "Permission denied."
           $(widgetFile "error")

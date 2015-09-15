@@ -26,8 +26,8 @@ postEntryNewR cid = do
           inThis = filter (inEntry entry) otherEntries
           thisIn = filter (entryIn entry) otherEntries
       entryId <- runDB $ insert entry
-      setMessage $ toHtml $ entryName entry <> " created"
-      redirect $ EntriesR $ EntryR entryId
+      setMessage . toHtml $ entryName entry <> " created"
+      redirect . EntriesR $ EntryR entryId
     _ -> defaultLayout $ do
       setMessage "Error creating entry."
       $(widgetFile "error")
