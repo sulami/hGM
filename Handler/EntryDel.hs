@@ -15,5 +15,5 @@ getEntryDelR entryId = do
       -- TODO delete from related entries
       runDB $ delete entryId
       setMessage "Entry deleted."
-      redirect HomeR
+      redirect . EntriesR . EntryListR $ entryCampaignId entry
 
