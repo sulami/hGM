@@ -1,6 +1,6 @@
 module Handler.EntryList where
 
-import Import
+import           Import
 
 getEntryListR :: CampaignId -> Handler Html
 getEntryListR cid = do

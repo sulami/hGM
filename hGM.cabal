@@ -28,6 +28,7 @@ library
                      Foundation
                      Import
                      Import.NoFoundation
+                     Import.Semantic
                      Model
                      Settings
                      Settings.StaticFiles

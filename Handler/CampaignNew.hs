@@ -1,8 +1,7 @@
 module Handler.CampaignNew where
 
-import Import
-
-import Handler.EntryEdit (renderSemantic)
+import           Import
+import           Import.Semantic (renderSemantic)
 
 campaignForm :: UserId -> Form Campaign
 campaignForm user = renderSemantic $ Campaign
@@ -29,3 +28,4 @@ postCampaignNewR = do
     _ -> defaultLayout $ do
       setMessage "Error creating entry."
       $(widgetFile "error")
+
