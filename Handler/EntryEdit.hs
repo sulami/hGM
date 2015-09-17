@@ -93,9 +93,11 @@ entryIn e = textMatch (TS.words $ entryName e) . TS.words . unmarkdown .
 unmarkdown :: MD.Markdown -> Text
 unmarkdown = TL.toStrict . (\(MD.Markdown e) -> e)
 
--- | Match multi-word names.
+-- | Match multi-word names. Case-insensitive. Ignores punctuation.
 textMatch :: [Text] -> [Text] -> Bool
 textMatch [] _  = False
 textMatch _  [] = False
-textMatch s  c  = take (length s) c == s || textMatch s (drop 1 c)
+textMatch s  c  =
+  map (TS.toCaseFold . TS.filter (`elem` (['a'..'z'] ++ ['A'..'Z'])))
+    (take (length s) c) == map TS.toCaseFold s || textMatch s (drop 1 c)
 
