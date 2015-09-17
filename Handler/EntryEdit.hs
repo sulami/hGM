@@ -55,43 +55,43 @@ postEntryEditR entryId = do
       case res of
         FormSuccess entryData -> do
           runDB $ replace entryId entryData
-          saveEntry cid entryId entryData
+          updateRelationships cid
           setMessage . toHtml $ entryName entryData <> " saved"
           redirect . EntriesR $ EntryR entryId
         _ -> defaultLayout $ do
           setMessage "Permission denied."
           $(widgetFile "error")
 
-saveEntry :: CampaignId -> EntryId -> Entry -> Handler ()
-saveEntry cid entryId entry = do
-  otherEntries' <- runDB $ selectList [EntryCampaignId ==. cid] []
-  let otherEntries = map entityToTuple otherEntries'
-      inThis = filter (inEntry entry) otherEntries
-      thisIn = filter (entryIn entry) otherEntries
-  runDB $ update entryId [ EntryInThis =. map fst inThis
-                         , EntryThisIn =. map fst thisIn ]
-  forM_ inThis $ \(key, _) -> do
-    old <- runDB $ get404 key
-    runDB $ update key [ EntryThisIn =. (entryId : entryThisIn old) ]
-  forM_ thisIn $ \(key, _) -> do
-    old <- runDB $ get404 key
-    runDB $ update key [ EntryInThis =. (entryId : entryInThis old) ]
+-- Update all the relationships between entries in a campaign when something
+-- has changed. This needs to be called after commiting the change.
+updateRelationships :: CampaignId -> Handler ()
+updateRelationships cid = do
+  allEntries <- runDB $ selectList [EntryCampaignId ==. cid] []
+  forM_ allEntries $ \(Entity k e) -> do
+        -- Original set of relationships.
+    let oldInThis = entryInThis e
+        oldThisIn = entryThisIn e
+        -- The new set of relationships.
+        newInThis = map (\(Entity x _) -> x) $ filter (inEntry e) allEntries
+        newThisIn = map (\(Entity x _) -> x) $ filter (entryIn e) allEntries
+    when (newInThis /= oldInThis || newThisIn /= oldThisIn) . runDB $
+      update k [ EntryInThis =. newInThis, EntryThisIn =. newThisIn ]
 
-entityToTuple :: Entity a -> (Key a, a)
-entityToTuple (Entity k e) = (k, e)
+entityToThing :: Entity a -> a
+entityToThing (Entity _ t) = t
+
+-- Is an entry referenced in this one?
+inEntry :: Entry -> Entity Entry -> Bool
+inEntry e = (`textMatch` TS.words (unmarkdown $ entryContent e)) .
+                          TS.words . entryName . entityToThing
+
+-- Is this entry referenced in another one?
+entryIn :: Entry -> Entity Entry -> Bool
+entryIn e = textMatch (TS.words $ entryName e) . TS.words .
+                          unmarkdown . entryContent . entityToThing
 
 unmarkdown :: MD.Markdown -> Text
 unmarkdown = TL.toStrict . (\(MD.Markdown e) -> e)
-
--- Is an entry referenced in this one?
-inEntry :: Entry -> (Key Entry, Entry) -> Bool
-inEntry e = (`textMatch` TS.words (unmarkdown $ entryContent e)) . TS.words .
-              entryName . snd
-
--- Is this entry referenced in another one?
-entryIn :: Entry -> (Key Entry, Entry) -> Bool
-entryIn e = textMatch (TS.words $ entryName e) . TS.words . unmarkdown .
-              entryContent . snd
 
 -- Match multi-word names.
 textMatch :: [Text] -> [Text] -> Bool

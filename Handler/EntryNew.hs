@@ -2,7 +2,7 @@ module Handler.EntryNew where
 
 import           Import
 
-import           Handler.EntryEdit (entryForm, saveEntry)
+import           Handler.EntryEdit (entryForm, updateRelationships)
 
 getEntryNewR :: CampaignId -> Handler Html
 getEntryNewR cid = do
@@ -18,7 +18,7 @@ postEntryNewR cid = do
   case res of
     FormSuccess entry -> do
       entryId <- runDB $ insert entry
-      saveEntry cid entryId entry
+      updateRelationships cid
       setMessage . toHtml $ entryName entry <> " created"
       redirect . EntriesR $ EntryR entryId
     _ -> defaultLayout $ do
