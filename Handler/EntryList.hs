@@ -6,7 +6,7 @@ getEntryListR :: CampaignId -> Handler Html
 getEntryListR cid = do
   user <- requireAuthId
   camp <- runDB $ get404 cid
-  entries <- runDB $ selectList [EntryCampaignId ==. cid] [Asc EntryId]
+  entries <- runDB $ selectList [EntryCampaignId ==. cid] [Asc EntryName]
   defaultLayout $ do
     setTitle . toHtml $ campaignName camp
     $(widgetFile "entrylist")
