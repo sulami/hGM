@@ -44,7 +44,6 @@ library
                      Handler.CampaignNew
                      Handler.CampaignDel
                      Game.DnD.GM.Dice
-                     Game.DnD.GM.Entry
 
     if flag(dev) || flag(library-only)
         cpp-options:   -DDEVELOPMENT
