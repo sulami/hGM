@@ -95,9 +95,14 @@ unmarkdown = TL.toStrict . (\(MD.Markdown e) -> e)
 
 -- | Match multi-word names. Case-insensitive. Ignores punctuation.
 textMatch :: [Text] -> [Text] -> Bool
-textMatch [] _  = False
-textMatch _  [] = False
-textMatch s  c  =
-  map (TS.toCaseFold . TS.filter (`elem` (['a'..'z'] ++ ['A'..'Z'])))
-    (take (length s) c) == map TS.toCaseFold s || textMatch s (drop 1 c)
+textMatch snippet content = tm (map prep snippet) (map prep content)
+  where
+    prep :: Text -> Text
+    prep = TS.toCaseFold . TS.filter
+              (`elem` (['a'..'z'] ++ ['A'..'Z'] ++ ['0'..'9']))
+
+    tm :: [Text] -> [Text] -> Bool
+    tm [] _  = False
+    tm _  [] = False
+    tm s  c  = take (length s) c == s || tm s (drop 1 c)
 
