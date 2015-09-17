@@ -7,8 +7,7 @@ getEntryR entryId = do
   user <- requireAuthId
   entry <- runDB $ get404 entryId
   camp <- runDB . get404 $ entryCampaignId entry
-  inThis <- runDB $ selectList [EntryId <-. entryInThis entry] []
-  thisIn <- runDB $ selectList [EntryId <-. entryThisIn entry] []
+  inThis <- runDB $ selectList [EntryId <-. entryInThis entry] [Asc EntryName]
   if user /= campaignOwnerId camp
     then do
       setMessage "Permission denied."

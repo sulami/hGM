@@ -7,16 +7,19 @@
   <i .right .chevron .icon .divider>
   <a .section href="@{EntriesR (EntryR entryId)}">#{entryName entry}
 
-<div .ui .segment>
-  #{entryContent entry}
-
-In this:
-$forall Entity entId ent <- inThis
-  <a href="@{EntriesR (EntryR entId)}">#{entryName ent}
-
-This in:
-$forall Entity entId ent <- thisIn
-  <a href="@{EntriesR (EntryR entId)}">#{entryName ent}
+$if not (null inThis)
+  <div .ui .horizontal .segments>
+    <div .ui .segment>
+      #{entryContent entry}
+    <div .ui .secondary .segment style="max-width: 250px;">
+      <h4 .ui .header>
+        Referenced in this entry
+      <div .ui .link  .list>
+        $forall Entity entId ent <- inThis
+          <a .item href="@{EntriesR (EntryR entId)}">#{entryName ent}
+$else
+  <div .ui .segment>
+    #{entryContent entry}
 
 <div .buttons>
   <button onClick="location.href = '@{EntriesR (EntryEditR entryId)}';" class="ui button">
