@@ -62,7 +62,7 @@ postEntryEditR entryId = do
           setMessage "Permission denied."
           $(widgetFile "error")
 
--- Update all the relationships between entries in a campaign when something
+-- | Update all the relationships between entries in a campaign when something
 -- has changed. This needs to be called after commiting the change.
 updateRelationships :: CampaignId -> Handler ()
 updateRelationships cid = do
@@ -80,12 +80,12 @@ updateRelationships cid = do
 entityToThing :: Entity a -> a
 entityToThing (Entity _ t) = t
 
--- Is an entry referenced in this one?
+-- | Is an entry referenced in this one?
 inEntry :: Entry -> Entity Entry -> Bool
 inEntry e = (`textMatch` TS.words (unmarkdown $ entryContent e)) . TS.words .
               entryName . entityToThing
 
--- Is this entry referenced in another one?
+-- | Is this entry referenced in another one?
 entryIn :: Entry -> Entity Entry -> Bool
 entryIn e = textMatch (TS.words $ entryName e) . TS.words . unmarkdown .
               entryContent . entityToThing
@@ -93,7 +93,7 @@ entryIn e = textMatch (TS.words $ entryName e) . TS.words . unmarkdown .
 unmarkdown :: MD.Markdown -> Text
 unmarkdown = TL.toStrict . (\(MD.Markdown e) -> e)
 
--- Match multi-word names.
+-- | Match multi-word names.
 textMatch :: [Text] -> [Text] -> Bool
 textMatch [] _  = False
 textMatch _  [] = False
