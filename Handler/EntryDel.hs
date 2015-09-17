@@ -1,6 +1,8 @@
 module Handler.EntryDel where
 
-import Import
+import           Import
+
+import           Handler.EntryEdit (updateRelationships)
 
 getEntryDelR :: EntryId -> Handler Html
 getEntryDelR entryId = do
@@ -12,8 +14,8 @@ getEntryDelR entryId = do
       setMessage "Permission denied."
       defaultLayout $ $(widgetFile "error")
     else do
-      -- TODO delete from related entries
       runDB $ delete entryId
+      updateRelationships $ entryCampaignId entry
       setMessage "Entry deleted."
       redirect . EntriesR . EntryListR $ entryCampaignId entry
 
