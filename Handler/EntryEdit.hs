@@ -82,13 +82,13 @@ entityToThing (Entity _ t) = t
 
 -- Is an entry referenced in this one?
 inEntry :: Entry -> Entity Entry -> Bool
-inEntry e = (`textMatch` TS.words (unmarkdown $ entryContent e)) .
-                          TS.words . entryName . entityToThing
+inEntry e = (`textMatch` TS.words (unmarkdown $ entryContent e)) . TS.words .
+              entryName . entityToThing
 
 -- Is this entry referenced in another one?
 entryIn :: Entry -> Entity Entry -> Bool
-entryIn e = textMatch (TS.words $ entryName e) . TS.words .
-                          unmarkdown . entryContent . entityToThing
+entryIn e = textMatch (TS.words $ entryName e) . TS.words . unmarkdown .
+              entryContent . entityToThing
 
 unmarkdown :: MD.Markdown -> Text
 unmarkdown = TL.toStrict . (\(MD.Markdown e) -> e)
