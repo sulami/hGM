@@ -3,6 +3,7 @@ module Handler.EntryEdit where
 import           Import
 import           Import.Semantic (renderSemantic)
 
+import           Data.Char (isAlphaNum)
 import qualified Data.Text as TS
 import qualified Data.Text.Lazy as TL
 import qualified Text.Markdown as MD
@@ -98,8 +99,7 @@ textMatch :: [Text] -> [Text] -> Bool
 textMatch snippet content = tm (map prep snippet) (map prep content)
   where
     prep :: Text -> Text
-    prep = TS.toCaseFold . TS.filter
-              (`elem` (['a'..'z'] ++ ['A'..'Z'] ++ ['0'..'9']))
+    prep = TS.toCaseFold . TS.filter isAlphaNum
 
     tm :: [Text] -> [Text] -> Bool
     tm [] _  = False
