@@ -78,6 +78,7 @@ updateRelationships cid = do
     when (newInThis /= oldInThis || newThisIn /= oldThisIn) . runDB $
       update k [ EntryInThis =. newInThis, EntryThisIn =. newThisIn ]
 
+-- | Get the Element from an entity, discarding the key.
 entityToThing :: Entity a -> a
 entityToThing (Entity _ t) = t
 
@@ -91,6 +92,7 @@ entryIn :: Entry -> Entity Entry -> Bool
 entryIn e = textMatch (TS.words $ entryName e) . TS.words . unmarkdown .
               entryContent . entityToThing
 
+-- | Convert Markdown to strict text.
 unmarkdown :: MD.Markdown -> Text
 unmarkdown = TL.toStrict . (\(MD.Markdown e) -> e)
 
