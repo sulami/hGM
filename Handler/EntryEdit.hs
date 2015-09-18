@@ -16,7 +16,6 @@ entryForm camp = renderSemantic $ Entry
   <*> areq markdownField "Content" Nothing
   <*> pure camp
   <*> pure []
-  <*> pure []
 
 prepEntryForm :: Entry -> Form Entry
 prepEntryForm entry = renderSemantic $ Entry
@@ -24,7 +23,6 @@ prepEntryForm entry = renderSemantic $ Entry
   <*> areq markdownField "Content" (Just $ entryContent entry)
   <*> pure (entryCampaignId entry)
   <*> pure (entryInThis entry)
-  <*> pure (entryThisIn entry)
 
 getEntryEditR :: EntryId -> Handler Html
 getEntryEditR entryId = do
@@ -69,14 +67,9 @@ updateRelationships :: CampaignId -> Handler ()
 updateRelationships cid = do
   allEntries <- runDB $ selectList [EntryCampaignId ==. cid] []
   forM_ allEntries $ \(Entity k e) -> do
-        -- Original set of relationships.
     let oldInThis = entryInThis e
-        oldThisIn = entryThisIn e
-        -- The new set of relationships.
         newInThis = map (\(Entity x _) -> x) $ filter (inEntry e) allEntries
-        newThisIn = map (\(Entity x _) -> x) $ filter (entryIn e) allEntries
-    when (newInThis /= oldInThis || newThisIn /= oldThisIn) . runDB $
-      update k [ EntryInThis =. newInThis, EntryThisIn =. newThisIn ]
+    when (newInThis /= oldInThis) . runDB $ update k [EntryInThis =. newInThis]
 
 -- | Get the Element from an entity, discarding the key.
 entityToThing :: Entity a -> a
@@ -86,11 +79,6 @@ entityToThing (Entity _ t) = t
 inEntry :: Entry -> Entity Entry -> Bool
 inEntry e = (`textMatch` TS.words (unmarkdown $ entryContent e)) . TS.words .
               entryName . entityToThing
-
--- | Is this entry referenced in another one?
-entryIn :: Entry -> Entity Entry -> Bool
-entryIn e = textMatch (TS.words $ entryName e) . TS.words . unmarkdown .
-              entryContent . entityToThing
 
 -- | Convert Markdown to strict text.
 unmarkdown :: MD.Markdown -> Text

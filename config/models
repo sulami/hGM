@@ -17,6 +17,5 @@ Entry
     content Markdown
     campaignId CampaignId
     inThis [EntryId]
-    thisIn [EntryId]
     deriving
 
