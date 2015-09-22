@@ -9,21 +9,21 @@
 <div .ui .list .horizontal>
   $forall Entity campid camp <- camps
     <div .item>
-      <button onClick="location.href = '@{EntriesR (EntryListR campid)}';" class="ui button">
+      <button .ui .button onClick="location.href='@{EntriesR (EntryListR campid)}';">
         #{campaignName camp}
 
   <div .item>
-    <button onClick="location.href = '@{EntriesR CampaignNewR}';" class="ui button positive">
+    <button .ui .positive .button onClick="location.href='@{EntriesR CampaignNewR}';">
       <i .icon .plus>
-      New Campaign
+      New
 
 <h3>Utility
 <div .ui .list .horizontal>
   <div .item>
-    <button onClick="location.href = '@{DiceR}';" class="ui button">
+    <button .ui .button onClick="location.href='@{DiceR}';">
       <i .icon .cubes>
       Dice
   <div .item>
-    <button onClick="location.href = '@{AuthR LogoutR}';" class="ui negative button">
+    <button .ui .negative .button onClick="location.href='@{AuthR LogoutR}';">
       <i .icon .sign .out>
       Logout
