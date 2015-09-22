@@ -8,14 +8,12 @@
       <a .section href="@{EntriesR (EntryListR (entryCampaignId entry))}">#{campaignName camp}
       <i .right .chevron .icon .divider>
       <a .section href="@{EntriesR (EntryR entryId)}">#{entryName entry}
-  <div .right .item>
-    <div .ui .buttons>
-      <button .ui .button onClick="location.href='@{EntriesR (EntryEditR entryId)}';">
-        <i .icon .write>
-        Edit
-      <button .ui .negative .button onClick="location.href='@{EntriesR (EntryDelR entryId)}';">
-        <i .icon .trash>
-        Delete
+  <a .item .right href=@{EntriesR (EntryEditR entryId)}>
+    <i .icon .write>
+    Edit
+  <a .item href=@{EntriesR (EntryDelR entryId)}>
+    <i .icon .trash>
+    Delete
 
 $if not (null inThis)
   <div .ui .horizontal .segments>

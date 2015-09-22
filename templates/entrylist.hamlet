@@ -6,14 +6,12 @@
       <a .section href="@{HomeR}">Home
       <i .right .chevron .icon .divider>
       <a .section href="@{EntriesR (EntryListR cid)}">#{campaignName camp}
-  <div .right .item>
-    <div .ui .buttons>
-      <button .ui .positive .button onClick="location.href='@{EntriesR (EntryNewR cid)}';">
-        <i .icon .plus>
-        New
-      <button .ui .negative .button onClick="location.href='@{EntriesR (CampaignDelR cid)}';">
-        <i .icon .trash>
-        Delete
+  <a .item .right href=@{EntriesR (EntryNewR cid)}>
+    <i .icon .plus>
+    New
+  <a .item href=@{EntriesR (CampaignDelR cid)}>
+    <i .icon .trash>
+    Delete
 
 <h3>Entries
 $if null entries
