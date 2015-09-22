@@ -27,3 +27,4 @@
     <button .ui .negative .button onClick="location.href='@{AuthR LogoutR}';">
       <i .icon .sign .out>
       Logout
+
