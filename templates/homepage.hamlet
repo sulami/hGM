@@ -1,7 +1,9 @@
 <h1>Welcome!
 
-<div .ui .breadcrumb>
-  <a .section href="@{HomeR}">Home
+<div .ui .secondary .menu>
+  <div .item>
+    <div .ui .breadcrumb>
+      <a .section href="@{HomeR}">Home
 
 <h3>Campaigns
 <div .ui .list .horizontal>

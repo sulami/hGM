@@ -1,10 +1,11 @@
 <h1>Dice
 
-<div .ui .breadcrumb>
-  <a .section href="@{HomeR}">Home
-  <i .right .chevron .icon .divider>
-  <a .section href="@{DiceR}">Dice
-<div .ui .divider .hidden>
+<div .ui .secondary .menu>
+  <div .item>
+    <div .ui .breadcrumb>
+      <a .section href="@{HomeR}">Home
+      <i .right .chevron .icon .divider>
+      <a .section href="@{DiceR}">Dice
 
 <div .ui .list .horizontal>
   $forall die <- dice

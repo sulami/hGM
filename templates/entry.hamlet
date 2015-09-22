@@ -1,11 +1,21 @@
 <h1>#{entryName entry}
 
-<div .ui .breadcrumb>
-  <a .section href="@{HomeR}">Home
-  <i .right .chevron .icon .divider>
-  <a .section href="@{EntriesR (EntryListR (entryCampaignId entry))}">#{campaignName camp}
-  <i .right .chevron .icon .divider>
-  <a .section href="@{EntriesR (EntryR entryId)}">#{entryName entry}
+<div .ui .secondary .menu>
+  <div .item>
+    <div .ui .breadcrumb>
+      <a .section href="@{HomeR}">Home
+      <i .right .chevron .icon .divider>
+      <a .section href="@{EntriesR (EntryListR (entryCampaignId entry))}">#{campaignName camp}
+      <i .right .chevron .icon .divider>
+      <a .section href="@{EntriesR (EntryR entryId)}">#{entryName entry}
+  <div .right .item>
+    <div .ui .buttons>
+      <button .ui .button onClick="location.href='@{EntriesR (EntryEditR entryId)}';">
+        <i .icon .write>
+        Edit
+      <button .ui .negative .button onClick="location.href='@{EntriesR (EntryDelR entryId)}';">
+        <i .icon .trash>
+        Delete
 
 $if not (null inThis)
   <div .ui .horizontal .segments>
@@ -20,12 +30,4 @@ $if not (null inThis)
 $else
   <div .ui .segment>
     #{entryContent entry}
-
-<div .buttons>
-  <button onClick="location.href = '@{EntriesR (EntryEditR entryId)}';" class="ui button">
-    <i .icon .write>
-    Edit
-  <button onClick="location.href = '@{EntriesR (EntryDelR entryId)}';" class="negative ui button">
-    <i .icon .remove>
-    Delete
 

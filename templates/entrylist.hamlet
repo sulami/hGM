@@ -1,9 +1,20 @@
 <h1>#{campaignName camp}
 
-<div .ui .breadcrumb>
-  <a .section href="@{HomeR}">Home
-  <i .right .chevron .icon .divider>
-  <a .section href="@{EntriesR (EntryListR cid)}">#{campaignName camp}
+<div .ui .secondary .menu>
+  <div .item>
+    <div .ui .breadcrumb>
+      <a .section href="@{HomeR}">Home
+      <i .right .chevron .icon .divider>
+      <a .section href="@{EntriesR (EntryListR cid)}">#{campaignName camp}
+  <div .right .item>
+    <div .ui .buttons>
+      <button .ui .positive .button onClick="location.href='@{EntriesR (EntryNewR cid)}';">
+        <i .icon .plus>
+        New
+      <button .ui .negative .button onClick="location.href='@{EntriesR (CampaignDelR cid)}';">
+        <i .icon .trash>
+        Delete
+
 
 <h3>Entries
 $if null entries
@@ -13,11 +24,4 @@ $else
     $forall Entity entryId entry <- entries
       <div .item>
         <a href=@{EntriesR (EntryR entryId)}> #{entryName entry}
-
-<button onClick="location.href = '@{EntriesR (EntryNewR cid)}';" class="ui button positive">
-  <i .icon .plus>
-  New Entry
-<button onClick="location.href = '@{EntriesR (CampaignDelR cid)}';" class="ui button negative">
-  <i .icon .remove>
-  Delete Campaign
 

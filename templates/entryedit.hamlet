@@ -1,16 +1,20 @@
 <h1>Editing #{entryName entry}
 
-<div .ui .breadcrumb>
-  <a .section href="@{HomeR}">Home
-  <i .right .chevron .icon .divider>
-  <a .section href="@{EntriesR (EntryListR (entryCampaignId entry))}">#{campaignName camp}
-  <i .right .chevron .icon .divider>
-  <a .section href="@{EntriesR (EntryR entryId)}">#{entryName entry}
-  <i .right .chevron .icon .divider>
-  <a .section href="@{EntriesR (EntryEditR entryId)}">Edit
+<div .ui .secondary .menu>
+  <div .item>
+    <div .ui .breadcrumb>
+      <a .section href="@{HomeR}">Home
+      <i .right .chevron .icon .divider>
+      <a .section href="@{EntriesR (EntryListR (entryCampaignId entry))}">#{campaignName camp}
+      <i .right .chevron .icon .divider>
+      <a .section href="@{EntriesR (EntryR entryId)}">#{entryName entry}
+      <i .right .chevron .icon .divider>
+      <a .section href="@{EntriesR (EntryEditR entryId)}">Edit
 
-<form method=post enctype=#{enctype} class="ui form">
+<form .ui .form method=post enctype=#{enctype}>
   ^{entryWidget}
-  <input type=submit class="positive ui button" value="Save">
-  <button type="button" onClick="location.href = '@{EntriesR (EntryR entryId)}';" class="negative ui button">Cancel
+  <div .ui .buttons>
+    <input .ui .positive .button type=submit value="Save">
+    <button .ui .negative .button onClick="location.href='@{EntriesR (EntryR entryId)}';" >
+      Cancel
 
