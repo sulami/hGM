@@ -6,6 +6,9 @@
       <a .section href="@{HomeR}">Home
       <i .right .chevron .icon .divider>
       <a .section href="@{DiceR}">Dice
+  <a .item .right href=@{AuthR LogoutR}>
+    <i .icon .sign .out>
+    Logout
 
 <div .ui .list .horizontal>
   $forall die <- dice

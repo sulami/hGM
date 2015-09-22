@@ -12,6 +12,9 @@
   <a .item href=@{EntriesR (CampaignDelR cid)}>
     <i .icon .trash>
     Delete
+  <a .item href=@{AuthR LogoutR}>
+    <i .icon .sign .out>
+    Logout
 
 <h3>Entries
 $if null entries

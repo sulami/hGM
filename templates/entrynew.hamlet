@@ -8,6 +8,9 @@
       <a .section href="@{EntriesR (EntryListR cid)}">#{campaignName camp}
       <i .right .chevron .icon .divider>
       <a .section href="@{EntriesR (EntryNewR cid)}">New Entry
+  <a .item .right href=@{AuthR LogoutR}>
+    <i .icon .sign .out>
+    Logout
 
 <form .ui .form method=post enctype=#{enctype}>
   ^{entryWidget}

@@ -10,6 +10,9 @@
       <a .section href="@{EntriesR (EntryR entryId)}">#{entryName entry}
       <i .right .chevron .icon .divider>
       <a .section href="@{EntriesR (EntryEditR entryId)}">Edit
+  <a .item .right href=@{AuthR LogoutR}>
+    <i .icon .sign .out>
+    Logout
 
 <form .ui .form method=post enctype=#{enctype}>
   ^{entryWidget}
