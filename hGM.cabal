@@ -32,6 +32,7 @@ library
                      Model
                      Settings
                      Settings.StaticFiles
+                     Secret
                      Handler.Common
                      Handler.Home
                      Handler.Entry
