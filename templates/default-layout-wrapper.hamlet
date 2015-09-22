@@ -27,7 +27,7 @@ $newline never
   <body>
     <div class="ui container">
       <header>
-      <div id="main" role="main">
+      <div id="main" role="main" style="margin-top: 25px">
         ^{pageBody pc}
       <div .ui .divider>
       <footer>

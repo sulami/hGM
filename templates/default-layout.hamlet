@@ -1,6 +1,8 @@
 $maybe msg <- mmsg
-  <div .ui .hidden .divider>
-  <div .ui .message>
+  <div .ui .message style="margin-top: 20px">
+    <i .icon .close>
     <div .header>
       #{msg}
 ^{widget}
+
+<script>$('.message .close').on('click', function() { $(this).closest('.message').transition('fade'); });
