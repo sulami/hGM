@@ -10,13 +10,14 @@ campaignForm user = renderSemantic $ Campaign
 
 getCampaignNewR :: Handler Html
 getCampaignNewR = do
-  user <- requireAuthId
-  -- TODO see if the account is premium
-  ownedCamps <- runDB $ count [CampaignOwnerId ==. user]
-  when (ownedCamps >= 1) $ do
-    setMessage "Campaign limit reached. Upgrade to Premium for unlimited campaigns."
-    redirect HomeR
-  (campaignWidget, enctype) <- generateFormPost $ campaignForm user
+  Entity uid user <- requireAuth
+  unless (userPremium user) $ do
+    ownedCamps <- runDB $ count [CampaignOwnerId ==. uid]
+    when (ownedCamps >= 1) $ do
+      setMessage
+        "Campaign limit reached. Upgrade to Premium for unlimited campaigns."
+      redirect HomeR
+  (campaignWidget, enctype) <- generateFormPost $ campaignForm uid
   defaultLayout $ do
     setTitle "New Campaign"
     $(widgetFile "campaignnew")

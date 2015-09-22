@@ -1,6 +1,7 @@
 User
     ident Text
     password Text Maybe
+    premium Bool
     UniqueUser ident
     deriving Typeable
 Email
