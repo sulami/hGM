@@ -9,7 +9,9 @@ getEntryNewR cid = do
   _ <- requireAuthId
   camp <- runDB $ get404 cid
   (entryWidget, enctype) <- generateFormPost $ entryForm cid
-  defaultLayout $(widgetFile "entrynew")
+  defaultLayout $ do
+    setTitle "New Entry"
+    $(widgetFile "entrynew")
 
 postEntryNewR :: CampaignId -> Handler Html
 postEntryNewR cid = do
