@@ -4,6 +4,8 @@
   <div .item>
     <div .ui .breadcrumb>
       <a .section href=@{HomeR}>Home
+      <i .right .icon .chevron .divider>
+      <a .section href=@{AccountR OverviewR}>Account
   <a .item .right href=@{AccountR OverviewR}>
     <i .icon .user>
     Account
