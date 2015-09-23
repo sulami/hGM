@@ -45,6 +45,7 @@ library
                      Handler.CampaignNew
                      Handler.CampaignDel
                      Handler.Overview
+                     Handler.Premium
                      Game.DnD.GM.Dice
 
     if flag(dev) || flag(library-only)
