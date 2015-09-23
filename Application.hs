@@ -41,6 +41,7 @@ import Handler.Dice
 import Handler.DiceRoll
 import Handler.CampaignNew
 import Handler.CampaignDel
+import Handler.Account
 
 import Game.DnD.GM.Dice (initializeIO)
 

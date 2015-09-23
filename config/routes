@@ -16,3 +16,4 @@
 /dice                 DiceR         GET
 /api                  ApiR:
   /dice/roll/#Int/#Int  DiceRollR     GET
+/me                   AccountR      GET
