@@ -44,7 +44,7 @@ library
                      Handler.DiceRoll
                      Handler.CampaignNew
                      Handler.CampaignDel
-                     Handler.Account
+                     Handler.Overview
                      Game.DnD.GM.Dice
 
     if flag(dev) || flag(library-only)

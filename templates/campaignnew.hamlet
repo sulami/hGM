@@ -6,7 +6,7 @@
       <a .section href="@{HomeR}">Home
       <i .right .chevron .icon .divider>
       <a .section href="@{EntriesR CampaignNewR}">New Campaign
-  <a .item .right href=@{AccountR}>
+  <a .item .right href=@{AccountR OverviewR}>
     <i .icon .user>
     Account
   <a .item href=@{AuthR LogoutR}>

@@ -8,7 +8,7 @@
       <a .section href="@{EntriesR (EntryListR cid)}">#{campaignName camp}
       <i .right .chevron .icon .divider>
       <a .section href="@{EntriesR (EntryNewR cid)}">New Entry
-  <a .item .right href=@{AccountR}>
+  <a .item .right href=@{AccountR OverviewR}>
     <i .icon .user>
     Account
   <a .item href=@{AuthR LogoutR}>
