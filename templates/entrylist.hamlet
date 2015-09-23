@@ -12,6 +12,9 @@
   <a .item href=@{EntriesR (CampaignDelR cid)}>
     <i .icon .trash>
     Delete
+  <a .item href=@{AccountR}>
+    <i .icon .user>
+    Account
   <a .item href=@{AuthR LogoutR}>
     <i .icon .sign .out>
     Logout

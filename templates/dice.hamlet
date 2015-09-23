@@ -6,7 +6,10 @@
       <a .section href="@{HomeR}">Home
       <i .right .chevron .icon .divider>
       <a .section href="@{DiceR}">Dice
-  <a .item .right href=@{AuthR LogoutR}>
+  <a .item .right href=@{AccountR}>
+    <i .icon .user>
+    Account
+  <a .item href=@{AuthR LogoutR}>
     <i .icon .sign .out>
     Logout
 
