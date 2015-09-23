@@ -1,0 +1,29 @@
+<h1>Account
+
+<div .ui .secondary .menu>
+  <div .item>
+    <div .ui .breadcrumb>
+      <a .section href=@{HomeR}>Home
+  <a .item .right href=@{AccountR}>
+    <i .icon .user>
+    Account
+  <a .item href=@{AuthR LogoutR}>
+    <i .icon .sign .out>
+    Logout
+
+<h3>Overview
+
+<table .ui .very .basic .collapsing .table>
+  <tr>
+    <td>Email:
+    <td>#{userIdent user}
+  <tr .top .aligned>
+    <td>Status:
+    <td>
+      $if userPremium user
+        Premium User
+      $else
+        Free User
+        <br>
+        <a>Upgrade to Premium
+

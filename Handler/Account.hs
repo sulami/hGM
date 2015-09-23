@@ -3,4 +3,9 @@ module Handler.Account where
 import Import
 
 getAccountR :: Handler Html
-getAccountR = error "Not yet implemented: getAccountR"
+getAccountR = do
+  Entity uid user <- requireAuth
+  defaultLayout $ do
+    setTitle "Account"
+    $(widgetFile "account")
+
