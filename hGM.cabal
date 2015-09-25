@@ -109,7 +109,6 @@ library
                  , random
                  , yesod-text-markdown
                  , markdown
-                 , yesod-mangopay
 
 executable         hGM
     if flag(library-only)
