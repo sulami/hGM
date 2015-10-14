@@ -23,10 +23,12 @@
       <i .icon .plus>
       New
 
-<h3>Utility
-<div .ui .list .horizontal>
-  <div .item>
-    <button .ui .button onClick="location.href='@{DiceR}';">
-      <i .icon .cubes>
-      Dice
+<!--
+    <h3>Utility
+    <div .ui .list .horizontal>
+    <div .item>
+        <button .ui .button onClick="location.href='@{DiceR}';">
+        <i .icon .cubes>
+        Dice
+-->
 
