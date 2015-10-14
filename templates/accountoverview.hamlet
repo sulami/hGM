@@ -24,6 +24,10 @@
     <td>
       $if userPremium user
         Premium User
+        <br>
+        Paid until #{premiumUntil}
+        <br>
+        <a href=@{AccountR PremiumR}>Extend
       $else
         Free User
         <br>

@@ -131,6 +131,7 @@ instance YesodAuth App where
 
     authenticate creds = runDB $ do
         x <- insertBy $ User (credsIdent creds) Nothing False
+                             (ModifiedJulianDay 0)
         return $ case x of
             Left (Entity uid _) -> Authenticated uid
             Right uid -> Authenticated uid

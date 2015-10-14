@@ -2,6 +2,7 @@ User
     ident Text
     password Text Maybe
     premium Bool
+    premiumUntil Day
     UniqueUser ident
     deriving Typeable
 Email
