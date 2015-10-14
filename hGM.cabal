@@ -109,6 +109,7 @@ library
                  , random
                  , yesod-text-markdown
                  , markdown
+                 , stripe-haskell
 
 executable         hGM
     if flag(library-only)
