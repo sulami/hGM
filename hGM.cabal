@@ -29,6 +29,7 @@ library
                      Import
                      Import.NoFoundation
                      Import.Semantic
+                     Import.Premium
                      Model
                      Settings
                      Settings.StaticFiles
