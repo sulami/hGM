@@ -5,9 +5,9 @@ import Data.Maybe (fromJust)
 import Data.Time.Calendar (addDays)
 
 -- | Check if a user has active premium that expires sometime in the future.
-hasPremium :: User -> IO Bool
+hasPremium :: MonadIO m => User -> m Bool
 hasPremium user = do
-  today <- fmap utctDay getCurrentTime
+  today <- liftIO $ fmap utctDay getCurrentTime
   return $ userPremiumUntil user >= today
 
 -- | Give a user premium for a set of days.

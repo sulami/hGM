@@ -12,7 +12,7 @@ campaignForm user = renderSemantic $ Campaign
 getCampaignNewR :: Handler Html
 getCampaignNewR = do
   Entity uid user <- requireAuth
-  prem <- liftIO $ hasPremium user
+  prem <- hasPremium user
   unless prem $ do
     ownedCamps <- runDB $ count [CampaignOwnerId ==. uid]
     when (ownedCamps >= 1) $ do
