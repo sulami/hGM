@@ -1,12 +1,12 @@
 module Handler.Overview where
 
-import Import
-import Import.Premium
-import Data.Time.Calendar (showGregorian)
+import           Import
+import           Import.Premium (hasPremium)
+import           Data.Time.Calendar (showGregorian)
 
 getOverviewR :: Handler Html
 getOverviewR = do
-  Entity uid user <- requireAuth
+  Entity _ user <- requireAuth
   prem <- liftIO $ hasPremium user
   let premiumUntil = showGregorian $ userPremiumUntil user
   defaultLayout $ do
