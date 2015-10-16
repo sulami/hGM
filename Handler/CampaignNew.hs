@@ -2,6 +2,7 @@ module Handler.CampaignNew where
 
 import           Import
 import           Import.Semantic (renderSemantic)
+import           Import.Premium (hasPremium)
 
 campaignForm :: UserId -> Form Campaign
 campaignForm user = renderSemantic $ Campaign
@@ -11,7 +12,8 @@ campaignForm user = renderSemantic $ Campaign
 getCampaignNewR :: Handler Html
 getCampaignNewR = do
   Entity uid user <- requireAuth
-  unless (userPremium user) $ do
+  prem <- liftIO $ hasPremium user
+  unless prem $ do
     ownedCamps <- runDB $ count [CampaignOwnerId ==. uid]
     when (ownedCamps >= 1) $ do
       setMessage

@@ -130,8 +130,7 @@ instance YesodAuth App where
     redirectToReferer _ = True
 
     authenticate creds = runDB $ do
-        x <- insertBy $ User (credsIdent creds) Nothing False
-                             (ModifiedJulianDay 0)
+        x <- insertBy $ User (credsIdent creds) Nothing (ModifiedJulianDay 0)
         return $ case x of
             Left (Entity uid _) -> Authenticated uid
             Right uid -> Authenticated uid

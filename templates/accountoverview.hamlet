@@ -22,7 +22,7 @@
   <tr .top .aligned>
     <td>Status:
     <td>
-      $if userPremium user
+      $if prem
         Premium User
         <br>
         Paid until #{premiumUntil}
