@@ -14,10 +14,7 @@ hasPremium user = do
 addPremium :: UserId -> Integer -> Handler ()
 addPremium uid days = do
   user <- fmap fromJust . runDB $ get uid
-  prem <- liftIO $ hasPremium user
   today <- liftIO $ fmap utctDay getCurrentTime
   let old = userPremiumUntil user
-  if prem
-    then runDB $ update uid [ UserPremiumUntil =. addDays days old ]
-    else runDB $ update uid [ UserPremiumUntil =. addDays days today ]
+  runDB $ update uid [ UserPremiumUntil =. addDays days (max today old) ]
 
