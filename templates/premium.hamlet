@@ -13,5 +13,23 @@
     <i .icon .sign .out>
     Logout
 
-Get all the advantages of Premium.
+Get all the advantages of Premium. Premium status cancels automatically after
+paid time expires.
+
+<br>
+
+<div .ui .horizontal .segments>
+  $forall period <- periods
+    <div .ui .segment .center .aligned>
+      <div .ui .statistic>
+        <div .value>
+          #{period}
+        <div .label>
+          $if period == 1
+            Month
+          $else
+            Months
+      <br>
+      <div .ui .button>
+        \$#{prize period}
 
