@@ -13,12 +13,6 @@
     <i .icon .sign .out>
     Logout
 
-Loom Premium allows you to have more than one campaign at a time. Premium
-status cancels automatically after paid time expires. Additional campaigns
-after the first one become read-only until premium is repurchased.
-
-<br>
-
 <div .ui .horizontal .segments>
   $forall (period, prize) <- periods
     <div .ui .segment .center .aligned>
@@ -33,4 +27,22 @@ after the first one become read-only until premium is repurchased.
       <br>
       <div .ui .button>
         #{prize}€
+
+<h2>Features
+
+<div .ui .bulleted .list>
+  <div .item>
+    More than one active Campaign
+  <div .item>
+    Integrated image store
+  <div .item>
+    Player Handouts
+
+<h3>Fineprint
+
+<div .ui .basic .tertiary .segment>
+  Premium cancels automatically if not repurchased. Additional Campaigns after
+  the first one, stored images and player handouts become inaccessible if
+  Premium expires. Credit card data never touches Loom's server and is not
+  stored.
 
