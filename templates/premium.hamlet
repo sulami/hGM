@@ -20,7 +20,7 @@ after the first one become read-only until premium is repurchased.
 <br>
 
 <div .ui .horizontal .segments>
-  $forall period <- periods
+  $forall (period, prize) <- periods
     <div .ui .segment .center .aligned>
       <div .ui .statistic>
         <div .value>
@@ -32,5 +32,5 @@ after the first one become read-only until premium is repurchased.
             Months
       <br>
       <div .ui .button>
-        \$#{prize period}
+        #{prize}€
 
