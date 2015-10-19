@@ -6,6 +6,8 @@
       <a .section href=@{HomeR}>Home
       <i .right .icon .chevron .divider>
       <a .section href=@{AccountR OverviewR}>Account
+      <i .right .icon .chevron .divider>
+      <a .section href=@{AccountR PremiumR}>Premium
   <a .item .right href=@{AccountR OverviewR}>
     <i .icon .user>
     Account
