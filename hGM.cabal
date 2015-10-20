@@ -52,6 +52,7 @@ library
                      Handler.Handout
                      Handler.HandoutEdit
                      Handler.HandoutDel
+                     Handler.HandoutShare
                      Game.DnD.GM.Dice
 
     if flag(dev) || flag(library-only)

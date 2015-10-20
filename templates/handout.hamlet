@@ -8,7 +8,7 @@
       <a .section href="@{EntriesR (EntryListR (handoutCampaignId handout))}">#{campaignName camp}
       <i .right .chevron .icon .divider>
       <a .section href="@{HandoutsR (HandoutR handoutId)}">#{handoutName handout}
-  <a .item .right href=@{HandoutsR (HandoutEditR handoutId)}>
+  <a .item .right onClick="sharelink()">
     <i .icon .write>
     Share
   <a .item href=@{HandoutsR (HandoutEditR handoutId)}>
