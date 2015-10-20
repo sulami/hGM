@@ -9,7 +9,7 @@
       <i .right .chevron .icon .divider>
       <a .section href="@{HandoutsR (HandoutR handoutId)}">#{handoutName handout}
   <a .item .right onClick="sharelink()">
-    <i .icon .write>
+    <i .icon .share .alternate>
     Share
   <a .item href=@{HandoutsR (HandoutEditR handoutId)}>
     <i .icon .write>
