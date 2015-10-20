@@ -1,7 +1,8 @@
 function sharelink() {
   $.ajax('@{HandoutsR (HandoutShareR handoutId)}')
     .done(function(data) {
-      alert(data);
+      $('#url').prop('value', data);
+      $('.ui.dimmer').dimmer('show');
     });
 }
 

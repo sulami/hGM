@@ -24,6 +24,15 @@
     <i .icon .sign .out>
     Logout
 
+<div .ui .page .dimmer>
+  <div .content>
+    <div .center>
+      <div .ui .container>
+        <div .ui .big .fluid .labeled .input>
+          <div .ui .label>
+            URL:
+          <input #url type="text" style="text-align: center" readonly>
+
 <div .ui .segment>
   #{handoutContent handout}
 
