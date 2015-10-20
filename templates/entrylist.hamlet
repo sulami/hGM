@@ -27,25 +27,35 @@
     <i .icon .sign .out>
     Logout
 
-<h3>Entries
-$if null entries
-  <p>Empty!
-$else
-  <div .ui .list>
-    $forall Entity entryId entry <- entries
-      <div .item>
-        <a href=@{EntriesR (EntryR entryId)}>
-          #{entryName entry}
-
-<h3>Handouts
-$if null handouts
-  <p>Empty!
-$else
-  <div .ui .list>
-    $forall Entity handoutId handout <- handouts
-      <div .item>
-        <a href=@{HandoutsR (HandoutR handoutId)}>
-          #{handoutName handout}
+<div .ui .two .column .grid>
+  <div .column>
+    <h3>Entries
+    $if null entries
+      <p>Empty!
+    $else
+      <div .ui .list>
+        $forall Entity entryId entry <- entries
+          <div .item>
+            <a href=@{EntriesR (EntryR entryId)}>
+              #{entryName entry}
+  $if prem
+    <div .column>
+      <h3>Handouts
+      $if null handouts
+        <p>Empty!
+      $else
+        <div .ui .list>
+          $forall Entity handoutId handout <- handouts
+            <div .item>
+              <a href=@{HandoutsR (HandoutR handoutId)}>
+                #{handoutName handout}
+  $else
+    <div .column>
+      <h3>Handouts
+      <div .ui .list>
+        <div .item>
+          <a href=@{AccountR PremiumR}>
+            Requires Premium
 
 <script>
   \$('.premonly').popup();
