@@ -19,4 +19,8 @@ Entry
     campaignId CampaignId
     inThis [EntryId]
     deriving
+Handout
+    name Text
+    content Markdown
+    campaignId CampaignId
 
