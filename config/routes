@@ -17,7 +17,7 @@
   /#HandoutId           HandoutR      GET
   /new/#CampaignId      HandoutNewR   GET POST
   /edit/#HandoutId      HandoutEditR  GET POST
-  /del/#HandoutId       HandoutDelR   GET POST
+  /del/#HandoutId       HandoutDelR   GET
 /dice                 DiceR         GET
 /api                  ApiR:
   /dice/roll/#Int/#Int  DiceRollR     GET
