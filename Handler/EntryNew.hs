@@ -6,8 +6,9 @@ import           Handler.EntryEdit (entryForm, updateRelationships)
 
 getEntryNewR :: CampaignId -> Handler Html
 getEntryNewR cid = do
-  _ <- requireAuthId
+  Entity uid user <- requireAuth
   camp <- runDB $ get404 cid
+  unless (uid == campaignOwnerId camp) $ redirect HomeR
   (entryWidget, enctype) <- generateFormPost $ entryForm cid
   defaultLayout $ do
     setTitle "New Entry"
