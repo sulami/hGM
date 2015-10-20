@@ -29,10 +29,10 @@
         New
 
 <!--
-    <h3>Utility
-    <div .ui .list .horizontal>
+<h3>Utilities
+  <div .ui .horizontal .list>
     <div .item>
-        <button .ui .button onClick="location.href='@{DiceR}';">
+      <button .ui .button onClick="location.href='@{DiceR}';">
         <i .icon .cubes>
         Dice
 -->
