@@ -8,10 +8,18 @@
       <a .section href="@{EntriesR (EntryListR cid)}">#{campaignName camp}
   <a .item .right href=@{EntriesR (EntryNewR cid)}>
     <i .icon .plus>
-    New
+    Entry
+  $if prem
+    <a .item href="">
+      <i .icon .plus>
+      Handout
+  $else
+    <a .item .premonly data-content="Requires Premium" data-variation="inverted" style="color: rgba(40,40,40,0.3) !important">
+      <i .icon .plus>
+      Handout
   <a .item href=@{EntriesR (CampaignDelR cid)}>
     <i .icon .trash>
-    Delete
+    Delete Campaign
   <a .item href=@{AccountR OverviewR}>
     <i .icon .user>
     Account
@@ -26,5 +34,19 @@ $else
   <div .ui .list>
     $forall Entity entryId entry <- entries
       <div .item>
-        <a href=@{EntriesR (EntryR entryId)}> #{entryName entry}
+        <a href=@{EntriesR (EntryR entryId)}>
+          #{entryName entry}
+
+<h3>Handouts
+$if null handouts
+  <p>Empty!
+$else
+  <div .ui .list>
+    $forall Entity handoutId handout <- handouts
+      <div .item>
+        <a>
+          #{handoutName handout}
+
+<script>
+  \$('.premonly').popup();
 
