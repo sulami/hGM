@@ -19,9 +19,14 @@
         #{campaignName camp}
 
   <div .item>
-    <button .ui .positive .button onClick="location.href='@{EntriesR CampaignNewR}';">
-      <i .icon .plus>
-      New
+    $if newenabled
+      <button .ui .positive .button onClick="location.href='@{EntriesR CampaignNewR}';">
+        <i .icon .plus>
+        New
+    $else
+      <button .ui .disabled .positive .button .premonly data-content="Requires Premium" data-variation="inverted" style="pointer-events: inherit !important">
+        <i .icon .plus>
+        New
 
 <!--
     <h3>Utility
@@ -31,4 +36,7 @@
         <i .icon .cubes>
         Dice
 -->
+
+<script>
+  \$('.premonly').popup();
 
