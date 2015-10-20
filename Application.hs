@@ -45,6 +45,9 @@ import Handler.Overview
 import Handler.Premium
 import Handler.Faq
 import Handler.HandoutNew
+import Handler.Handout
+import Handler.HandoutEdit
+import Handler.HandoutDel
 
 import Game.DnD.GM.Dice (initializeIO)
 

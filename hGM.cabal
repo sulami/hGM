@@ -49,6 +49,9 @@ library
                      Handler.Premium
                      Handler.Faq
                      Handler.HandoutNew
+                     Handler.Handout
+                     Handler.HandoutEdit
+                     Handler.HandoutDel
                      Game.DnD.GM.Dice
 
     if flag(dev) || flag(library-only)

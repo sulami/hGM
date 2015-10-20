@@ -44,7 +44,7 @@ $else
   <div .ui .list>
     $forall Entity handoutId handout <- handouts
       <div .item>
-        <a>
+        <a href=@{HandoutsR (HandoutR handoutId)}>
           #{handoutName handout}
 
 <script>

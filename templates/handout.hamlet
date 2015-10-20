@@ -1,0 +1,29 @@
+<h1>#{handoutName handout}
+
+<div .ui .secondary .menu>
+  <div .item>
+    <div .ui .breadcrumb>
+      <a .section href="@{HomeR}">Home
+      <i .right .chevron .icon .divider>
+      <a .section href="@{EntriesR (EntryListR (handoutCampaignId handout))}">#{campaignName camp}
+      <i .right .chevron .icon .divider>
+      <a .section href="@{HandoutsR (HandoutR handoutId)}">#{handoutName handout}
+  <a .item .right href=@{HandoutsR (HandoutEditR handoutId)}>
+    <i .icon .write>
+    Share
+  <a .item href=@{HandoutsR (HandoutEditR handoutId)}>
+    <i .icon .write>
+    Edit
+  <a .item href=@{HandoutsR (HandoutDelR handoutId)}>
+    <i .icon .trash>
+    Delete
+  <a .item href=@{AccountR OverviewR}>
+    <i .icon .user>
+    Account
+  <a .item href=@{AuthR LogoutR}>
+    <i .icon .sign .out>
+    Logout
+
+<div .ui .segment>
+  #{handoutContent handout}
+

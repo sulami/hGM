@@ -14,7 +14,10 @@
   /view/#EntryId        EntryR        GET
   /del/#EntryId         EntryDelR     GET
 /handouts             HandoutsR:
+  /#HandoutId           HandoutR      GET
   /new/#CampaignId      HandoutNewR   GET POST
+  /edit/#HandoutId      HandoutEditR  GET POST
+  /del/#HandoutId       HandoutDelR   GET POST
 /dice                 DiceR         GET
 /api                  ApiR:
   /dice/roll/#Int/#Int  DiceRollR     GET
