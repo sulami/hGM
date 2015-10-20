@@ -28,4 +28,15 @@ getHandoutNewR cid = do
       redirect . EntriesR $ EntryListR cid
 
 postHandoutNewR :: CampaignId -> Handler Html
-postHandoutNewR campaignId = error "Not yet implemented: postHandoutNewR"
+postHandoutNewR cid = do
+  _ <- requireAuthId
+  ((res,_), _) <- runFormPost $ handoutForm cid
+  case res of
+    FormSuccess handout -> do
+      handoutId <- runDB $ insert handout
+      setMessage . toHtml $ handoutName handout <> " created"
+      redirect . EntriesR $ EntryListR cid -- FIXME redirect to handout page
+    _ -> defaultLayout $ do
+      setMessage "Error creating handout."
+      $(widgetFile "error")
+
