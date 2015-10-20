@@ -1,0 +1,17 @@
+<h1>FAQ
+
+<div .ui .styled .fluid .accordion>
+  <div .title>
+    <i .icon .dropdown>
+    Example Question
+  <div .content>
+    Example Answer
+  <div .title>
+    <i .icon .dropdown>
+    Example Question
+  <div .content>
+    Example Answer
+
+<script>
+  \$('.ui.accordion').accordion();
+

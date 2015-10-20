@@ -31,4 +31,8 @@ $newline never
         ^{pageBody pc}
       <div .ui .divider>
       <footer>
-        #{appCopyright $ appSettings master}
+        <div .ui .horizontal .list>
+          <div .item>
+            #{appCopyright $ appSettings master}
+          <div .item>
+            <a .right href=@{FaqR}>FAQ

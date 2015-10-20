@@ -19,3 +19,4 @@
 /me                   AccountR:
   /                     OverviewR     GET
   /premium              PremiumR      GET POST
+/faq                  FaqR          GET
