@@ -13,6 +13,8 @@
   /edit/#EntryId        EntryEditR    GET POST
   /view/#EntryId        EntryR        GET
   /del/#EntryId         EntryDelR     GET
+/handouts             HandoutsR:
+  /new/#CampaignId      HandoutNewR   GET POST
 /dice                 DiceR         GET
 /api                  ApiR:
   /dice/roll/#Int/#Int  DiceRollR     GET

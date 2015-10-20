@@ -10,7 +10,7 @@
     <i .icon .plus>
     Entry
   $if prem
-    <a .item href="">
+    <a .item href=@{HandoutsR (HandoutNewR cid)}>
       <i .icon .plus>
       Handout
   $else

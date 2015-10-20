@@ -44,6 +44,7 @@ import Handler.CampaignDel
 import Handler.Overview
 import Handler.Premium
 import Handler.Faq
+import Handler.HandoutNew
 
 import Game.DnD.GM.Dice (initializeIO)
 
