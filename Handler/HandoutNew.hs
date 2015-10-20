@@ -2,15 +2,7 @@ module Handler.HandoutNew where
 
 import Import
 import Import.Premium (hasPremium)
-import Import.Semantic (renderSemantic)
-
-import Yesod.Text.Markdown
-
-handoutForm :: CampaignId -> Form Handout
-handoutForm camp = renderSemantic $ Handout
-  <$> areq textField "Title" Nothing
-  <*> areq markdownField "Content" Nothing
-  <*> pure camp
+import Handler.HandoutEdit (handoutForm)
 
 getHandoutNewR :: CampaignId -> Handler Html
 getHandoutNewR cid = do
@@ -35,7 +27,7 @@ postHandoutNewR cid = do
     FormSuccess handout -> do
       handoutId <- runDB $ insert handout
       setMessage . toHtml $ handoutName handout <> " created"
-      redirect . EntriesR $ EntryListR cid -- FIXME redirect to handout page
+      redirect . HandoutsR $ HandoutR handoutId
     _ -> defaultLayout $ do
       setMessage "Error creating handout."
       $(widgetFile "error")
