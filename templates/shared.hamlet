@@ -1,6 +1,6 @@
 <h1>#{handoutName handout}
 
-<div .ui .segment>
+<div .ui .basic .segment>
   #{handoutContent handout}
 
 This is a shared handout using <a href=@{HomeR}>Loom</a>.
