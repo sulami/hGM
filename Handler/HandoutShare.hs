@@ -17,5 +17,5 @@ generateLink hid = do
   app <- getYesod
   let root = appRoot $ appSettings app
       uniq = pack . show . (*23) $ fromSqlKey hid
-  return $ root ++ "/share/" ++ uniq
+  return $ root ++ "/shared/" ++ uniq
 

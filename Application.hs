@@ -49,6 +49,7 @@ import Handler.Handout
 import Handler.HandoutEdit
 import Handler.HandoutDel
 import Handler.HandoutShare
+import Handler.Shared
 
 import Game.DnD.GM.Dice (initializeIO)
 

@@ -19,6 +19,7 @@
   /edit/#HandoutId      HandoutEditR  GET POST
   /del/#HandoutId       HandoutDelR   GET
   /share/#HandoutId     HandoutShareR GET
+/shared/#Int64        SharedR       GET
 /dice                 DiceR         GET
 /api                  ApiR:
   /dice/roll/#Int/#Int  DiceRollR     GET
