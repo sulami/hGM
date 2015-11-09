@@ -6,7 +6,7 @@ import           Handler.EntryEdit (entryForm, updateRelationships)
 
 getEntryNewR :: CampaignId -> Handler Html
 getEntryNewR cid = do
-  Entity uid user <- requireAuth
+  Entity uid _ <- requireAuth
   camp <- runDB $ get404 cid
   unless (uid == campaignOwnerId camp) $ redirect HomeR
   (entryWidget, enctype) <- generateFormPost $ entryForm cid

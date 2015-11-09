@@ -4,7 +4,7 @@ import Import
 
 getPremiumR :: Handler Html
 getPremiumR = do
-  Entity uid user <- requireAuth
+  _ <- requireAuth
   let periods = [ ( 1,  2.99)
                 , ( 3,  6.99)
                 , ( 6, 12.99)
