@@ -30,10 +30,10 @@
             Months
       <br>
       <form action="" method="POST">
+        <input type="hidden" name="amount" value="#{stripePrize prize}">
         <script
           src="https://checkout.stripe.com/v2/checkout.js"
           class="stripe-button"
-          data-bitcoin="true"
           data-email="#{userAddr}"
           data-label="$#{prize}"
           data-key="#{pubKey}"
