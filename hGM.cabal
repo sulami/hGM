@@ -54,7 +54,6 @@ library
                      Handler.HandoutDel
                      Handler.HandoutShare
                      Handler.Shared
-                     Handler.Purchase
                      Game.DnD.GM.Dice
 
     if flag(dev) || flag(library-only)
