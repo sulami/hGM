@@ -3,6 +3,14 @@ module Import.Premium where
 import Import
 import Data.Time.Calendar (addDays)
 
+prizes :: [(Int, Float)]
+prizes = [ ( 1,  2.99)
+         , ( 3,  6.99)
+         , ( 6, 12.99)
+         , (12, 24.99)
+         , (24, 44.99)
+         ]
+
 -- | Check if a user has active premium that expires sometime in the future.
 hasPremium :: MonadIO m => User -> m Bool
 hasPremium user = do
