@@ -15,6 +15,8 @@
     <i .icon .sign .out>
     Logout
 
+<script type="text/javascript" src="https://js.stripe.com/v2/">
+
 <div .ui .horizontal .segments>
   $forall (period, prize) <- periods
     <div .ui .segment .center .aligned>
@@ -27,8 +29,18 @@
           $else
             Months
       <br>
-      <div .ui .button>
-        #{prize}€
+      <form action="" method="POST">
+        <script
+          src="https://checkout.stripe.com/v2/checkout.js"
+          class="stripe-button"
+          data-bitcoin="true"
+          data-email="#{userAddr}"
+          data-label="$#{prize}"
+          data-key="#{pubKey}"
+          data-amount="#{stripePrize prize}"
+          data-currency="usd"
+          data-name="Loom"
+          data-description="#{period} months of Premium (#{prize})">
 
 <h2>Features
 
