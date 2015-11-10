@@ -27,7 +27,7 @@
           $else
             Months
       <br>
-      <div .ui .button>
+      <div .ui .button onClick="location.href='@{AccountR (PurchaseR period)}';">
         #{prize}€
 
 <h2>Features

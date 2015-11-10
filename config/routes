@@ -26,4 +26,5 @@
 /me                   AccountR:
   /                     OverviewR     GET
   /premium              PremiumR      GET POST
+  /premium/get/#Int     PurchaseR     GET POST
 /faq                  FaqR          GET
