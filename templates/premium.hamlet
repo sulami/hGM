@@ -30,7 +30,7 @@
             Months
       <br>
       <form action="" method="POST">
-        <input type="hidden" name="amount" value="#{stripePrize prize}">
+        <input type="hidden" name="time" value="#{period}">
         <script
           src="https://checkout.stripe.com/v2/checkout.js"
           class="stripe-button"
