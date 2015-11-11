@@ -49,15 +49,16 @@ parseParam name = do
 
 -- | Carry out the actual Premium purchase
 purchasePremium :: UserId -> TokenId -> Int -> Int -> Handler Html
-purchasePremium uid token time amount = do
+purchasePremium uid token time prize = do
   let secKey = stripeSecretKey
   result <- liftIO $ stripe secKey $
-    chargeCardByToken token USD amount Nothing
+    chargeCardByToken token USD prize Nothing
   case result of
     Left stripeError -> error $ show stripeError
     Right _          -> do
       addPremium uid (toInteger $ time * 30)
-      setMessage . toHtml $ "Success! " ++ months time ++ " of Premium purchased"
+      setMessage . toHtml $
+        "Success! " ++ months time ++ " of Premium purchased"
       redirect $ AccountR OverviewR
 
 -- | Do the damn 1 month/2 months conversion
