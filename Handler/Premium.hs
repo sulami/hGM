@@ -6,13 +6,13 @@ import Web.Stripe (stripe)
 import Web.Stripe.Charge (Currency (USD), TokenId (..), chargeCardByToken)
 
 import Import
-import Import.Premium (prizes, addPremium)
+import Import.Premium (prices, addPremium)
 import Secret (stripePublicKey, stripeSecretKey)
 
 getPremiumR :: Handler Html
 getPremiumR = do
   Entity _ user <- requireAuth
-  let periods = prizes
+  let periods = prices
       pubKey = stripePublicKey
       userAddr = userIdent user
   defaultLayout $ do
@@ -30,12 +30,12 @@ postPremiumR = do
       case time of
         Nothing -> error "Error passing the desired time"
         Just tm -> do
-          let prize = lookup tm prizes
-          case prize of
+          let price = lookup tm prices
+          case price of
             Nothing -> error "Desired time is not available"
             Just pz -> purchasePremium uid (TokenId tok) tm (stripePrize pz)
 
--- | Convert a float prize to an in-cents int
+-- | Convert a float price to an in-cents int
 stripePrize :: Float -> Int
 stripePrize = round . (* 100)
 
@@ -49,10 +49,10 @@ parseParam name = do
 
 -- | Carry out the actual Premium purchase
 purchasePremium :: UserId -> TokenId -> Int -> Int -> Handler Html
-purchasePremium uid token time prize = do
+purchasePremium uid token time price = do
   let secKey = stripeSecretKey
   result <- liftIO $ stripe secKey $
-    chargeCardByToken token USD prize Nothing
+    chargeCardByToken token USD price Nothing
   case result of
     Left stripeError -> error $ show stripeError
     Right _          -> do

@@ -3,8 +3,8 @@ module Import.Premium where
 import Import
 import Data.Time.Calendar (addDays)
 
-prizes :: [(Int, Float)]
-prizes = [ ( 1,  2.99)
+prices :: [(Int, Float)]
+prices = [ ( 1,  2.99)
          , ( 3,  6.99)
          , ( 6, 12.99)
          , (12, 24.99)
