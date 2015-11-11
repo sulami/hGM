@@ -73,7 +73,7 @@ instance Yesod App where
         withUrlRenderer $(hamletFile "templates/default-layout-wrapper.hamlet")
 
     -- The page to be redirected to when authentication is required.
-    authRoute _ = Just $ AuthR LoginR
+    authRoute _ = Just HomeR
 
     -- Routes not requiring authentication.
     isAuthorized (AuthR _) _ = return Authorized
