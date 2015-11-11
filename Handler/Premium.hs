@@ -57,6 +57,11 @@ purchasePremium uid token time amount = do
     Left stripeError -> error $ show stripeError
     Right _          -> do
       addPremium uid (toInteger $ time * 30)
-      setMessage "Success"
+      setMessage . toHtml $ "Success! " ++ months time ++ " of Premium purchased"
       redirect $ AccountR OverviewR
+
+-- | Do the damn 1 month/2 months conversion
+months :: Int -> String
+months 1 = "1 month"
+months n = show n ++ " months"
 

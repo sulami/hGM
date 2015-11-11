@@ -40,7 +40,7 @@
           data-amount="#{stripePrize prize}"
           data-currency="usd"
           data-name="Loom"
-          data-description="#{period} months of Premium (#{prize})">
+          data-description="#{months period} of Premium (#{prize})">
 
 <h2>Features
 
