@@ -36,3 +36,5 @@ $newline never
             #{appCopyright $ appSettings master}
           <div .item>
             <a .right href=@{FaqR}>FAQ
+          <div .item>
+            <a href=@{AccountR PremiumR}>Get Premium
