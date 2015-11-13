@@ -2,6 +2,7 @@ module Import.Semantic where
 
 import           Import
 
+-- | Use SemanticUI to render a form.
 renderSemantic :: Monad m => FormRender m a
 renderSemantic aform fragment = do
     (res, views') <- aFormToForm aform

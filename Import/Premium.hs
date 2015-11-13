@@ -3,6 +3,7 @@ module Import.Premium where
 import Import
 import Data.Time.Calendar (addDays)
 
+-- | The set of available month/price pairs.
 prices :: [(Int, Float)]
 prices = [ ( 1,  2.99)
          , ( 3,  6.99)
