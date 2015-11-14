@@ -1,5 +1,9 @@
 <h1>Loom
 
+<p>
+  Loom is a simple yet powerful story planning tool mainly aimed at
+  Role-Playing Game-Masters.
+
 <a .ui .download .button href="/auth/googleemail2/forward">
   Login via Google
 
