@@ -4,6 +4,11 @@
   Loom is a simple yet powerful story planning tool mainly aimed at
   Role-Playing Game-Masters.
 
-<a .ui .download .button href="/auth/googleemail2/forward">
-  Login via Google
+<div .ui .two .column .grid>
+  <div .right .aligned .column>
+    <a .ui .huge .basic .green .button href="/auth/googleemail2/forward">
+      Sign up
+  <div .column>
+    <a .ui .huge .basic .blue .button href="/auth/googleemail2/forward">
+      Login
 
