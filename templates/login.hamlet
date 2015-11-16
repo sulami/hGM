@@ -3,8 +3,8 @@
     <h1 .ui. .inverted .header>Loom
 
     <h3>
-      Loom is a simple yet powerful story planning tool mainly aimed at
-      Role-Playing Game-Masters.
+      A simple yet powerful story planning tool mainly aimed at Role-Playing
+      Game-Masters
 
     <div .ui .one .column .grid>
       <div .center .aligned .column>
@@ -12,4 +12,10 @@
           Sign up
         <a .ui .huge .inverted .basic .button href="/auth/page/googleemail2/forward">
           Login
+
+<div .ui .vertical .stripe .segment>
+  <div .ui .middle .aligned .stackable .grid .container>
+    <div .eight .wide .column>
+      <h3>This is why we are awesome
+      <p>Lorem ipsum timor sit amet.
 

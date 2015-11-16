@@ -1,0 +1,6 @@
+.masthead.segment
+  min-height: 700px
+
+h1.header
+  margin-top: 10em !important
+
