@@ -4,3 +4,6 @@
 h1.header
   margin-top: 10em !important
 
+.vertical.stripe.segment
+  padding: 8em 0em
+
