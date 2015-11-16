@@ -1,14 +1,15 @@
-<h1>Loom
+<div .ui .inverted .vertical .masthead .center .aligned .segment>
+  <div .ui .text .container>
+    <h1 .ui. .inverted .header>Loom
 
-<p>
-  Loom is a simple yet powerful story planning tool mainly aimed at
-  Role-Playing Game-Masters.
+    <h3>
+      Loom is a simple yet powerful story planning tool mainly aimed at
+      Role-Playing Game-Masters.
 
-<div .ui .two .column .grid>
-  <div .right .aligned .column>
-    <a .ui .huge .basic .green .button href="/auth/googleemail2/forward">
-      Sign up
-  <div .column>
-    <a .ui .huge .basic .blue .button href="/auth/googleemail2/forward">
-      Login
+    <div .ui .one .column .grid>
+      <div .center .aligned .column>
+        <a .ui .huge .inverted .download .button href="/auth/page/googleemail2/forward">
+          Sign up
+        <a .ui .huge .inverted .basic .button href="/auth/page/googleemail2/forward">
+          Login
 
