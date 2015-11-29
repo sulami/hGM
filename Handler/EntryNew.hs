@@ -9,7 +9,7 @@ getEntryNewR cid = do
   Entity uid _ <- requireAuth
   camp <- runDB $ get404 cid
   unless (uid == campaignOwnerId camp) $ redirect HomeR
-  (entryWidget, enctype) <- generateFormPost $ entryForm cid
+  (entryWidget, enctype) <- generateFormPost $ entryForm cid []
   defaultLayout $ do
     setTitle "New Entry"
     $(widgetFile "entrynew")
@@ -17,7 +17,7 @@ getEntryNewR cid = do
 postEntryNewR :: CampaignId -> Handler Html
 postEntryNewR cid = do
   _ <- requireAuthId
-  ((res,_), _) <- runFormPost $ entryForm cid
+  ((res,_), _) <- runFormPost $ entryForm cid []
   case res of
     FormSuccess entry -> do
       entryId <- runDB $ insert entry

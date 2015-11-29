@@ -10,20 +10,22 @@ import qualified Text.Markdown as MD
 
 import           Yesod.Text.Markdown
 
-entryForm :: CampaignId -> Form Entry
-entryForm camp = renderSemantic $ Entry
+entryForm :: CampaignId -> [(Text, Maybe CategoryId)] -> Form Entry
+entryForm camp cats = renderSemantic $ Entry
   <$> areq textField "Title" Nothing
   <*> areq markdownField "Content" Nothing
   <*> pure camp
-  <*> pure Nothing
+  <*> areq (selectFieldList $ ("Uncategorized" :: Text, Nothing) : cats)
+      "Category" Nothing
   <*> pure []
 
-prepEntryForm :: Entry -> Form Entry
-prepEntryForm entry = renderSemantic $ Entry
+prepEntryForm :: Entry -> [(Text, Maybe CategoryId)] -> Form Entry
+prepEntryForm entry cats = renderSemantic $ Entry
   <$> areq textField "Title" (Just $ entryName entry)
   <*> areq markdownField "Content" (Just $ entryContent entry)
   <*> pure (entryCampaignId entry)
-  <*> pure (entryCategoryId entry)
+  <*> areq (selectFieldList $ ("Uncategorized" :: Text, Nothing) : cats)
+      "Category" Nothing
   <*> pure (entryInThis entry)
 
 getEntryEditR :: EntryId -> Handler Html
@@ -36,7 +38,7 @@ getEntryEditR entryId = do
       setMessage "Permission denied."
       defaultLayout $ $(widgetFile "error")
     else do
-      (entryWidget, enctype) <- generateFormPost $ prepEntryForm entry
+      (entryWidget, enctype) <- generateFormPost $ prepEntryForm entry []
       defaultLayout $ do
         setTitle . toHtml $ entryName entry
         $(widgetFile "entryedit")
@@ -47,7 +49,7 @@ postEntryEditR entryId = do
   entry <- runDB $ get404 entryId
   let cid = entryCampaignId entry
   camp <- runDB $ get404 cid
-  ((res,_), _) <- runFormPost $ entryForm cid
+  ((res,_), _) <- runFormPost $ entryForm cid []
   if user /= campaignOwnerId camp
     then do
       setMessage "Permission denied."
