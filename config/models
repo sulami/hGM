@@ -13,10 +13,15 @@ Campaign
     name Text
     ownerId UserId
     deriving
+Category
+    name Text
+    campaignId CampaignId
+    deriving
 Entry
     name Text
     content Markdown
     campaignId CampaignId
+    categoryId CategoryId Maybe
     inThis [EntryId]
     deriving
 Handout

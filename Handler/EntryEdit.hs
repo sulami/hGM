@@ -15,6 +15,7 @@ entryForm camp = renderSemantic $ Entry
   <$> areq textField "Title" Nothing
   <*> areq markdownField "Content" Nothing
   <*> pure camp
+  <*> pure Nothing
   <*> pure []
 
 prepEntryForm :: Entry -> Form Entry
@@ -22,6 +23,7 @@ prepEntryForm entry = renderSemantic $ Entry
   <$> areq textField "Title" (Just $ entryName entry)
   <*> areq markdownField "Content" (Just $ entryContent entry)
   <*> pure (entryCampaignId entry)
+  <*> pure (entryCategoryId entry)
   <*> pure (entryInThis entry)
 
 getEntryEditR :: EntryId -> Handler Html
