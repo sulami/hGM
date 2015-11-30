@@ -69,10 +69,10 @@ postEntryEditR entryId = do
         FormSuccess entryData -> do
           runDB $ replace entryId entryData
           updateRelationships cid
-          setMessage . toHtml $ entryName entryData <> " saved"
+          setMessage . toHtml $ entryName entryData <> " saved."
           redirect . EntriesR $ EntryR entryId
         _ -> defaultLayout $ do
-          setMessage "Permission denied."
+          setMessage "An error occured."
           $(widgetFile "error")
 
 -- | Update all the relationships between entries in a campaign when something
