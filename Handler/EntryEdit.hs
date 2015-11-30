@@ -4,6 +4,7 @@ import           Import
 import           Import.Semantic (renderSemantic)
 
 import           Data.Char (isAlphaNum)
+import           Data.Maybe (fromJust)
 import qualified Data.Text as TS
 import qualified Data.Text.Lazy as TL
 import qualified Text.Markdown as MD
@@ -41,6 +42,9 @@ getEntryEditR entryId = do
     else do
       categories <- runDB $ selectList [CategoryCampaignId ==. cid]
                       [Asc CategoryName]
+      currentCategory <- if isJust (entryCategoryId entry)
+        then categoryName <$> runDB (get404 . fromJust $ entryCategoryId entry)
+        else return ("Uncategorized" :: Text)
       (entryWidget, enctype) <- generateFormPost . prepEntryForm entry $
                                   formatCategories categories
       defaultLayout $ do

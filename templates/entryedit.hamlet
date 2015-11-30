@@ -24,3 +24,9 @@
     <button .ui .negative .button type=button onClick="location.href='@{EntriesR (EntryR entryId)}';" >
       Cancel
 
+<script>
+  function select() {
+    \$(this).prop('selected', true);
+  };
+  \$('select').children("option:contains('#{currentCategory}')").each(select);
+
