@@ -33,16 +33,18 @@
     $if null entries
       <p>Empty!
     $else
-      <div .ui .list>
+      <div .ui .vertical .accordion .list>
         $forall (category, ents) <- groups
           <div .item>
-            <div .header>
+            <div .title>
+              <i .icon .open .folder>
               #{category}
-            <div .ui .list>
-              $forall Entity entryId entry <- ents
-                <div .item>
-                  <a href=@{EntriesR (EntryR entryId)}>
-                    #{entryName entry}
+            <div .active .content>
+              <div .list style="padding-top: 0; padding-left: 1em">
+                $forall Entity entryId entry <- ents
+                  <div .item>
+                    <a href=@{EntriesR (EntryR entryId)}>
+                      #{entryName entry}
   $if prem
     <div .column>
       <h3>Handouts
@@ -64,4 +66,15 @@
 
 <script>
   \$('.premonly').popup();
+  function animOpen() {
+    \$(this).parent().find('i').addClass('open');
+  };
+  function animClose() {
+    \$(this).parent().find('i').removeClass('open');
+  };
+  \$('.ui.accordion').accordion({
+    exclusive: false,
+    onOpen: animOpen,
+    onClose: animClose
+  });
 
