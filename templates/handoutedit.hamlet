@@ -21,6 +21,6 @@
   ^{handoutWidget}
   <div .ui .buttons>
     <input .ui .positive .button type=submit value="Save">
-    <button .ui .negative .button onClick="location.href='@{HandoutsR (HandoutR handoutId)}';" >
+    <button .ui .negative .button type=button onClick="location.href='@{HandoutsR (HandoutR handoutId)}';" >
       Cancel
 

@@ -16,5 +16,5 @@
 <form .ui .form method=post enctype=#{enctype}>
   ^{campaignWidget}
   <input .ui .positive .button type=submit value="Save">
-  <button .ui .negative .button onClick="location.href='@{HomeR}';">Cancel
+  <button .ui .negative .button type=button onClick="location.href='@{HomeR}';">Cancel
 

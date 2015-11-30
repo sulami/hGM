@@ -17,7 +17,7 @@
 
 <form .ui .form method=post enctype=#{enctype}>
   ^{handoutWidget}
-  <input type=submit class="positive ui button" value="Save">
-  <button .ui .negative .button onClick="location.href='@{EntriesR (EntryListR cid)}';">Cancel
+  <input .ui .positive .button type=submit value="Save">
+  <button .ui .negative .button type=button onClick="location.href='@{EntriesR (EntryListR cid)}';">Cancel
 
 
