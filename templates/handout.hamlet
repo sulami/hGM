@@ -14,7 +14,7 @@
   <a .item href=@{HandoutsR (HandoutEditR handoutId)}>
     <i .icon .write>
     Edit
-  <a .item href=@{HandoutsR (HandoutDelR handoutId)}>
+  <a .item onClick="$('.ui.dimmer#delete').dimmer({selector: {dimmer: '.ui.dimmer#delete'}}).dimmer('show');">
     <i .icon .trash>
     Delete
   <a .item href=@{AccountR OverviewR}>
@@ -24,7 +24,7 @@
     <i .icon .sign .out>
     Logout
 
-<div .ui .page .dimmer>
+<div .ui .page .dimmer .transition .hidden #share style="null">
   <div .content>
     <div .center>
       <div .ui .container>
@@ -32,6 +32,19 @@
           <div .ui .label>
             URL:
           <input #url type="text" style="text-align: center" readonly>
+
+<div .ui .page .dimmer .transition .hidden #delete style="null">
+  <div .content>
+    <div .center>
+      <div .ui .container>
+        <h1 .ui .inverted>
+          Delete #{handoutName handout}?
+        <button .ui .negative .button onClick="location.href='@{HandoutsR (HandoutDelR handoutId)}';">
+          <i .icon .trash>
+          Delete
+        <button .ui .button onClick="$('.ui.dimmer#delete').dimmer('hide');">
+          <i .icon .remove>
+          Cancel
 
 <div .ui .segment>
   #{handoutContent handout}
