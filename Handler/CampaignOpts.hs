@@ -25,5 +25,21 @@ getCampaignOptsR campaignId = do
         $(widgetFile "campaignopts")
 
 postCampaignOptsR :: CampaignId -> Handler Html
-postCampaignOptsR campaignId = error "Not yet implemented: postCampaignOptsR"
+postCampaignOptsR campaignId = do
+  user <- requireAuthId
+  campaign <- runDB $ get404 campaignId
+  ((res,_), _) <- runFormPost $ prepCampForm campaign
+  if user /= campaignOwnerId campaign
+    then do
+      setMessage "Permission denied."
+      defaultLayout $ $(widgetFile "error")
+    else
+      case res of
+        FormSuccess campData -> do
+          runDB $ replace campaignId campData
+          setMessage . toHtml $ campaignName campData <> " saved."
+          redirect . EntriesR $ EntryListR campaignId
+        _ -> defaultLayout $ do
+          setMessage "An error occured."
+          $(widgetFile "error")
 
