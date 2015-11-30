@@ -13,6 +13,6 @@ getHandoutDelR handoutId = do
       defaultLayout $ $(widgetFile "error")
     else do
       runDB $ delete handoutId
-      setMessage "handout deleted."
+      setMessage . toHtml $ handoutName handout <> " deleted."
       redirect . EntriesR . EntryListR $ handoutCampaignId handout
 

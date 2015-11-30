@@ -16,6 +16,6 @@ getEntryDelR entryId = do
     else do
       runDB $ delete entryId
       updateRelationships $ entryCampaignId entry
-      setMessage "Entry deleted."
+      setMessage . toHtml $ entryName entry <> " deleted."
       redirect . EntriesR . EntryListR $ entryCampaignId entry
 
