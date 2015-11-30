@@ -1,0 +1,24 @@
+<h1>Editing #{campaignName campaign}
+
+<div .ui .secondary .menu>
+  <div .item>
+    <div .ui .breadcrumb>
+      <a .section href="@{HomeR}">Home
+      <i .right .chevron .icon .divider>
+      <a .section href="@{EntriesR (EntryListR campaignId)}">#{campaignName campaign}
+      <i .right .chevron .icon .divider>
+      <a .section href="@{EntriesR (CampaignOptsR campaignId)}">Settings
+  <a .item .right href=@{AccountR OverviewR}>
+    <i .icon .user>
+    Account
+  <a .item href=@{AuthR LogoutR}>
+    <i .icon .sign .out>
+    Logout
+
+<form .ui .form method=post enctype=#{enctype}>
+  ^{campWidget}
+  <div .ui .buttons>
+    <input .ui .positive .button type=submit value="Save">
+    <button .ui .negative .button type=button onClick="location.href='@{EntriesR (EntryListR campaignId)}';" >
+      Cancel
+
