@@ -11,7 +11,7 @@
   <a .item .right href=@{EntriesR (EntryEditR entryId)}>
     <i .icon .write>
     Edit
-  <a .item href=@{EntriesR (EntryDelR entryId)}>
+  <a .item onClick="$('.ui.dimmer').dimmer('show');">
     <i .icon .trash>
     Delete
   <a .item href=@{AccountR OverviewR}>
@@ -34,4 +34,17 @@ $if not (null inThis)
 $else
   <div .ui .segment>
     #{entryContent entry}
+
+<div .ui .page .dimmer>
+  <div .content>
+    <div .center>
+      <div .ui .container>
+        <h1 .ui .inverted>
+          Delete #{entryName entry}?
+        <button .ui .negative .button onClick="location.href='@{EntriesR (EntryDelR entryId)}';">
+          <i .icon .trash>
+          Delete
+        <button .ui .button onClick="$('.ui.dimmer').dimmer('hide');">
+          <i .icon .remove>
+          Cancel
 
