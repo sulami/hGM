@@ -32,13 +32,17 @@ getEntryEditR :: EntryId -> Handler Html
 getEntryEditR entryId = do
   user <- requireAuthId
   entry <- runDB $ get404 entryId
-  camp <- runDB . get404 $ entryCampaignId entry
+  let cid = entryCampaignId entry
+  camp <- runDB $ get404 cid
   if user /= campaignOwnerId camp
     then do
       setMessage "Permission denied."
       defaultLayout $ $(widgetFile "error")
     else do
-      (entryWidget, enctype) <- generateFormPost $ prepEntryForm entry []
+      categories <- runDB $ selectList [CategoryCampaignId ==. cid]
+                    [Asc CategoryName]
+      (entryWidget, enctype) <- generateFormPost . prepEntryForm entry $
+                                  formatCategories categories
       defaultLayout $ do
         setTitle . toHtml $ entryName entry
         $(widgetFile "entryedit")
@@ -49,7 +53,9 @@ postEntryEditR entryId = do
   entry <- runDB $ get404 entryId
   let cid = entryCampaignId entry
   camp <- runDB $ get404 cid
-  ((res,_), _) <- runFormPost $ entryForm cid []
+  categories <- runDB $ selectList [CategoryCampaignId ==. cid]
+                  [Asc CategoryName]
+  ((res,_), _) <- runFormPost . entryForm cid $ formatCategories categories
   if user /= campaignOwnerId camp
     then do
       setMessage "Permission denied."
@@ -99,4 +105,10 @@ textMatch snippet content = tm (map prep snippet) (map prep content)
     tm [] _  = False
     tm _  [] = False
     tm s  c  = take (length s) c == s || tm s (drop 1 c)
+
+-- | Format the available categories into (name, id) tuples
+formatCategories :: [Entity Category] -> [(Text, Maybe CategoryId)]
+formatCategories = map (\(Entity k c) -> (categoryName c, Just k))
+
+{-# ANN module ("HLint: ignore Reduce duplication" :: String) #-}
 
