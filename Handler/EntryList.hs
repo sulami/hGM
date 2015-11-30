@@ -10,7 +10,7 @@ getEntryListR cid = do
   entries <- runDB $ selectList [EntryCampaignId ==. cid] [Asc EntryName]
   categories <- runDB $ selectList [CategoryCampaignId ==. cid]
                  [Asc CategoryName]
-  let groups = sortIntoCategories entries categories
+  let groups = filter (not . null . snd) $ sortIntoCategories entries categories
   handouts <- runDB $ selectList [HandoutCampaignId ==. cid] [Asc HandoutName]
   prem <- hasPremium user
   defaultLayout $ do
