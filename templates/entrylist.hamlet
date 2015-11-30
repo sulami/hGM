@@ -17,9 +17,9 @@
     <a .item .premonly data-content="Requires Premium" data-variation="inverted" style="color: rgba(40,40,40,0.3) !important">
       <i .icon .plus>
       Handout
-  <a .item href=@{EntriesR (CampaignDelR cid)}>
-    <i .icon .trash>
-    Delete Campaign
+  <a .item href=@{EntriesR (CampaignOptsR cid)}>
+    <i .icon .settings>
+    Settings
   <a .item href=@{AccountR OverviewR}>
     <i .icon .user>
     Account
