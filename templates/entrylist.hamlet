@@ -34,10 +34,15 @@
       <p>Empty!
     $else
       <div .ui .list>
-        $forall Entity entryId entry <- entries
+        $forall (category, ents) <- groups
           <div .item>
-            <a href=@{EntriesR (EntryR entryId)}>
-              #{entryName entry}
+            <div .header>
+              #{category}
+            <div .ui .list>
+              $forall Entity entryId entry <- ents
+                <div .item>
+                  <a href=@{EntriesR (EntryR entryId)}>
+                    #{entryName entry}
   $if prem
     <div .column>
       <h3>Handouts
