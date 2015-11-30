@@ -2,14 +2,19 @@ module Handler.EntryNew where
 
 import           Import
 
-import           Handler.EntryEdit (entryForm, updateRelationships)
+import           Handler.EntryEdit (
+  entryForm, formatCategories, updateRelationships
+  )
 
 getEntryNewR :: CampaignId -> Handler Html
 getEntryNewR cid = do
   Entity uid _ <- requireAuth
   camp <- runDB $ get404 cid
   unless (uid == campaignOwnerId camp) $ redirect HomeR
-  (entryWidget, enctype) <- generateFormPost $ entryForm cid []
+  categories <- runDB $ selectList [CategoryCampaignId ==. cid]
+                  [Asc CategoryName]
+  (entryWidget, enctype) <- generateFormPost . entryForm cid $
+                              formatCategories categories
   defaultLayout $ do
     setTitle "New Entry"
     $(widgetFile "entrynew")
@@ -17,7 +22,9 @@ getEntryNewR cid = do
 postEntryNewR :: CampaignId -> Handler Html
 postEntryNewR cid = do
   _ <- requireAuthId
-  ((res,_), _) <- runFormPost $ entryForm cid []
+  categories <- runDB $ selectList [CategoryCampaignId ==. cid]
+                  [Asc CategoryName]
+  ((res,_), _) <- runFormPost . entryForm cid $ formatCategories categories
   case res of
     FormSuccess entry -> do
       entryId <- runDB $ insert entry

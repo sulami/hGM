@@ -40,7 +40,7 @@ getEntryEditR entryId = do
       defaultLayout $ $(widgetFile "error")
     else do
       categories <- runDB $ selectList [CategoryCampaignId ==. cid]
-                    [Asc CategoryName]
+                      [Asc CategoryName]
       (entryWidget, enctype) <- generateFormPost . prepEntryForm entry $
                                   formatCategories categories
       defaultLayout $ do
