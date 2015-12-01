@@ -19,6 +19,28 @@
   ^{campWidget}
   <div .ui .buttons>
     <input .ui .positive .button type=submit value="Save">
-    <button .ui .negative .button type=button onClick="location.href='@{EntriesR (EntryListR campaignId)}';" >
+    <button .ui .button type=button onClick="location.href='@{EntriesR (EntryListR campaignId)}';" >
       Cancel
+
+<h4 .ui .dividing .header>Danger Zone
+
+<div .ui .stackable .grid>
+  <div .thirteen .wide .column>
+    Once you delete a campaign, all its contents are gone, there is no going back.
+  <div .three .wide .column>
+    <button .ui .inverted .red .button type=button onClick="$('.ui.dimmer').dimmer('show');">
+      Delete Campaign
+
+<div .ui .page .dimmer>
+  <div .content>
+    <div .center>
+      <div .ui .container>
+        <h1 .ui .inverted>
+          Delete #{campaignName campaign}?
+        <button .ui .negative .button onClick="location.href='@{EntriesR (CampaignDelR campaignId)}';">
+          <i .icon .trash>
+          Delete
+        <button .ui .button onClick="$('.ui.dimmer').dimmer('hide');">
+          <i .icon .remove>
+          Cancel
 
