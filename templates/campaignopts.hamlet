@@ -24,10 +24,10 @@
 
 
 <h4 .ui .dividing .header>Danger Zone
-<button .ui .inverted .red .button type=button onClick="$('.ui.dimmer').dimmer('show');">
+<button .ui .inverted .red .button type=button onClick="deletemodal()" onMouseEnter="fadeflag()" onMouseLeave="fadeflag()">
   Delete Campaign
-<div .ui .left .pointing .label>
-  Once you delete a campaign, all its contents are gone, there is no going back. 
+<div .ui .hidden .left .pointing .label #deletewarning>
+  Warning: Once you delete a campaign, all its contents are gone, there is no going back.
 
 <div .ui .page .dimmer>
   <div .content>
@@ -41,4 +41,12 @@
         <button .ui .button onClick="$('.ui.dimmer').dimmer('hide');">
           <i .icon .remove>
           Cancel
+
+<script>
+  function deletemodal() {
+    \$('.ui.dimmer').dimmer('show');
+  };
+  function fadeflag() {
+    \$('#deletewarning').transition('fade');
+  };
 
