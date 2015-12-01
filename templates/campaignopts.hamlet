@@ -27,7 +27,7 @@
 <div .ui .stackable .grid>
   <div .thirteen .wide .column>
     Once you delete a campaign, all its contents are gone, there is no going back.
-  <div .three .wide .column>
+  <div .three .wide .column .right .aligned>
     <button .ui .inverted .red .button type=button onClick="$('.ui.dimmer').dimmer('show');">
       Delete Campaign
 
