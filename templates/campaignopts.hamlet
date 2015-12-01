@@ -22,6 +22,14 @@
     <button .ui .button type=button onClick="location.href='@{EntriesR (EntryListR campaignId)}';" >
       Cancel
 
+<h4>Categories
+<div .ui .list>
+  $forall Entity _ category <- categories
+    <div .item>
+      #{categoryName category}
+  <div .item>
+    <a href="">
+      Add category
 
 <h4 .ui .dividing .header>Danger Zone
 <button .ui .inverted .red .button type=button onClick="deletemodal()" onMouseEnter="fadeflag()" onMouseLeave="fadeflag()">
