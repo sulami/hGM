@@ -22,14 +22,12 @@
     <button .ui .button type=button onClick="location.href='@{EntriesR (EntryListR campaignId)}';" >
       Cancel
 
-<h4 .ui .dividing .header>Danger Zone
 
-<div .ui .stackable .grid>
-  <div .thirteen .wide .column>
-    Once you delete a campaign, all its contents are gone, there is no going back.
-  <div .three .wide .column .right .aligned>
-    <button .ui .inverted .red .button type=button onClick="$('.ui.dimmer').dimmer('show');">
-      Delete Campaign
+<h4 .ui .dividing .header>Danger Zone
+<button .ui .inverted .red .button type=button onClick="$('.ui.dimmer').dimmer('show');">
+  Delete Campaign
+<div .ui .left .pointing .label>
+  Once you delete a campaign, all its contents are gone, there is no going back. 
 
 <div .ui .page .dimmer>
   <div .content>
