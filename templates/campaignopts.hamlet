@@ -27,7 +27,7 @@
         <i .icon .red .remove>
       #{categoryName category}
   <div .item>
-    <a href="">
+    <a onClick="newcatmodal()">
       <i .icon .add>
       Add category
 
@@ -37,7 +37,22 @@
 <div .ui .hidden .left .pointing .label #deletewarning>
   Warning: Once you delete a campaign, all its contents are gone, there is no going back.
 
-<div .ui .page .dimmer>
+<div .ui .page .dimmer #newcat>
+  <div .content>
+    <div .center>
+      <div .ui .container>
+        <div .ui .big .fluid .labeled .input>
+          <div .ui .label>
+            Name:
+          <input #catname type="text" style="text-align: center">
+        <button .ui .positive .button style="margin-top: 1em" onClick="">
+          <i .icon .add>
+          Add Category
+        <button .ui .button onClick="$('.ui.dimmer#newcat').dimmer('hide');">
+          <i .icon .remove>
+          Cancel
+
+<div .ui .page .dimmer #delete>
   <div .content>
     <div .center>
       <div .ui .container>
@@ -46,15 +61,7 @@
         <button .ui .negative .button onClick="location.href='@{EntriesR (CampaignDelR campaignId)}';">
           <i .icon .trash>
           Delete
-        <button .ui .button onClick="$('.ui.dimmer').dimmer('hide');">
+        <button .ui .button onClick="$('.ui.dimmer#delete').dimmer('hide');">
           <i .icon .remove>
           Cancel
-
-<script>
-  function deletemodal() {
-    \$('.ui.dimmer').dimmer('show');
-  };
-  function fadeflag() {
-    \$('#deletewarning').transition('fade');
-  };
 

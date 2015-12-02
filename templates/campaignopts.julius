@@ -1,0 +1,23 @@
+function newcatmodal() {
+  $('.ui.dimmer#newcat')
+    .dimmer({
+      selector: {
+        dimmer: '.ui.dimmer#newcat'
+      }
+    })
+    .dimmer('show');
+};
+function deletemodal() {
+  $('.ui.dimmer#delete')
+    .dimmer({
+      selector: {
+        dimmer: '.ui.dimmer#delete'
+      }
+    })
+    .dimmer('show');
+};
+function fadeflag() {
+  $('#deletewarning')
+    .transition('fade');
+};
+
