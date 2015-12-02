@@ -41,16 +41,17 @@
   <div .content>
     <div .center>
       <div .ui .container>
-        <div .ui .big .fluid .labeled .input>
-          <div .ui .label>
-            Name:
-          <input #catname type="text" style="text-align: center">
-        <button .ui .positive .button style="margin-top: 1em" onClick="">
-          <i .icon .add>
-          Add Category
-        <button .ui .button onClick="$('.ui.dimmer#newcat').dimmer('hide');">
-          <i .icon .remove>
-          Cancel
+        <form action="@{EntriesR (CategoryNewR campaignId)}" method=POST>
+          <div .ui .big .fluid .labeled .input>
+            <div .ui .label>
+              Name:
+            <input name="catname" type="text" style="text-align: center">
+          <button .ui .positive .button style="margin-top: 1em">
+            <i .icon .add>
+            Add Category
+          <button .ui .button type=button onClick="$('.ui.dimmer#newcat').dimmer('hide');">
+            <i .icon .remove>
+            Cancel
 
 <div .ui .page .dimmer #delete>
   <div .content>
