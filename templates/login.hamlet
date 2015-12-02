@@ -9,9 +9,7 @@
     <div .ui .one .column .grid>
       <div .center .aligned .column>
         <a .ui .huge .inverted .download .button href="/auth/page/googleemail2/forward">
-          Sign up
-        <a .ui .huge .inverted .basic .button href="/auth/page/googleemail2/forward">
-          Login
+          Sign up / Login
 
 <div .ui .vertical .stripe .segment>
   <div .ui .middle .aligned .stackable .grid .container>
