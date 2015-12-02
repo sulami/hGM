@@ -17,6 +17,7 @@ postCategoryNewR campaignId = do
           setMessage "Internal error."
           defaultLayout $ $(widgetFile "error")
         Just name -> do
+          setMessage . toHtml $ "Cateogry " <> name <> " added."
           _ <- runDB . insert $ Category name campaignId
           redirect . EntriesR $ CampaignOptsR campaignId
 

@@ -18,5 +18,6 @@ getCategoryDelR categoryId = do
       forM_ entries $ \(Entity k _) ->
         runDB $ update k [EntryCategoryId =. Nothing]
       runDB $ delete categoryId
+      setMessage . toHtml $ "Cateogry " <> categoryName category <> " deleted."
       redirect . EntriesR $ CampaignOptsR campaignId
 
