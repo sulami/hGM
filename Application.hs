@@ -51,6 +51,7 @@ import Handler.HandoutDel
 import Handler.HandoutShare
 import Handler.Shared
 import Handler.CampaignOpts
+import Handler.CategoryDel
 
 import Game.DnD.GM.Dice (initializeIO)
 

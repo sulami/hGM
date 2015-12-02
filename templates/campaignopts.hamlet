@@ -21,9 +21,9 @@
 
 <h4>Categories
 <div .ui .list>
-  $forall Entity _ category <- categories
+  $forall Entity catid category <- categories
     <div .item>
-      <a href="">
+      <a href="@{EntriesR (CategoryDelR catid)}">
         <i .icon .red .remove>
       #{categoryName category}
   <div .item>

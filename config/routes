@@ -11,6 +11,7 @@
   /#CampaignId          EntryListR    GET
   /new/#CampaignId      EntryNewR     GET POST
   /opts/#CampaignId     CampaignOptsR GET POST
+  /cat/del/#CategoryId  CategoryDelR  GET
   /edit/#EntryId        EntryEditR    GET POST
   /view/#EntryId        EntryR        GET
   /del/#EntryId         EntryDelR     GET

@@ -55,6 +55,7 @@ library
                      Handler.HandoutShare
                      Handler.Shared
                      Handler.CampaignOpts
+                     Handler.CategoryDel
                      Game.DnD.GM.Dice
 
     if flag(dev) || flag(library-only)
