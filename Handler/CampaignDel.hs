@@ -13,6 +13,6 @@ getCampaignDelR cid = do
     else do
       runDB $ deleteWhere [EntryCampaignId ==. cid]
       runDB $ delete cid
-      setMessage "Campaign deleted."
+      setMessage . toHtml $ campaignName camp <> " deleted."
       redirect HomeR
 
