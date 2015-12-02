@@ -23,9 +23,12 @@
 <div .ui .list>
   $forall Entity _ category <- categories
     <div .item>
+      <a href="">
+        <i .icon .red .remove>
       #{categoryName category}
   <div .item>
     <a href="">
+      <i .icon .add>
       Add category
 
 <h4 .ui .dividing .header>Danger Zone
