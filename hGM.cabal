@@ -56,6 +56,7 @@ library
                      Handler.Shared
                      Handler.CampaignOpts
                      Handler.CategoryDel
+                     Handler.CategoryNew
                      Game.DnD.GM.Dice
 
     if flag(dev) || flag(library-only)
