@@ -17,10 +17,7 @@
 
 <form .ui .form method=post enctype=#{enctype}>
   ^{campWidget}
-  <div .ui .buttons>
-    <input .ui .positive .button type=submit value="Save">
-    <button .ui .button type=button onClick="location.href='@{EntriesR (EntryListR campaignId)}';" >
-      Cancel
+  <input .ui .positive .button type=submit value="Save">
 
 <h4>Categories
 <div .ui .list>
