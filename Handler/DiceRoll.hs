@@ -1,8 +1,8 @@
 module Handler.DiceRoll where
 
-import Import
+import           Import
 
-import Game.DnD.GM.Dice
+import           Game.DnD.GM.Dice
 
 getDiceRollR :: Int -> Int -> Handler Html
 getDiceRollR _ sides = do

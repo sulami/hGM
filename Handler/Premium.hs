@@ -1,13 +1,14 @@
 module Handler.Premium where
 
-import Text.Read (readMaybe)
+import           Text.Read         (readMaybe)
 
-import Web.Stripe (stripe)
-import Web.Stripe.Charge (Currency (USD), TokenId (..), chargeCardByToken)
+import           Web.Stripe        (stripe)
+import           Web.Stripe.Charge (Currency (USD), TokenId (..),
+                                    chargeCardByToken)
 
-import Import
-import Import.Premium (prices, addPremium)
-import Secret (stripePublicKey, stripeSecretKey)
+import           Import
+import           Import.Premium    (addPremium, prices)
+import           Secret            (stripePublicKey, stripeSecretKey)
 
 getPremiumR :: Handler Html
 getPremiumR = do

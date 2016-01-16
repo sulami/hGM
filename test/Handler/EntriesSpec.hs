@@ -1,6 +1,6 @@
 module Handler.EntriesSpec (spec) where
 
-import TestImport
+import           TestImport
 
 spec :: Spec
 spec = withApp $ do

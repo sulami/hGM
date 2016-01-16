@@ -1,6 +1,6 @@
 module Handler.Faq where
 
-import Import
+import           Import
 
 getFaqR :: Handler Html
 getFaqR = defaultLayout $ do

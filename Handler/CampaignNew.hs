@@ -1,8 +1,8 @@
 module Handler.CampaignNew where
 
 import           Import
+import           Import.Premium  (hasPremium)
 import           Import.Semantic (renderSemantic)
-import           Import.Premium (hasPremium)
 
 campaignForm :: UserId -> Form Campaign
 campaignForm user = renderSemantic $ Campaign

@@ -1,8 +1,8 @@
 module Handler.Overview where
 
-import           Import
-import           Import.Premium (hasPremium)
 import           Data.Time.Calendar (showGregorian)
+import           Import
+import           Import.Premium     (hasPremium)
 
 getOverviewR :: Handler Html
 getOverviewR = do

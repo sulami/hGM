@@ -3,23 +3,26 @@ module TestImport
     , module X
     ) where
 
-import Application           (makeFoundation)
-import ClassyPrelude         as X
-import Database.Persist      as X hiding (get)
-import Database.Persist.Sql  (SqlPersistM, SqlBackend, runSqlPersistMPool, rawExecute, rawSql, unSingle, connEscapeName)
-import Foundation            as X
-import Model                 as X
-import Test.Hspec            as X
-import Text.Shakespeare.Text (st)
-import Yesod.Default.Config2 (ignoreEnv, loadAppSettings)
-import Yesod.Test            as X
+import           Application             (makeFoundation)
+import           ClassyPrelude           as X
+import           Database.Persist        as X hiding (get)
+import           Database.Persist.Sql    (SqlBackend, SqlPersistM,
+                                          connEscapeName, rawExecute, rawSql,
+                                          runSqlPersistMPool, unSingle)
+import           Foundation              as X
+import           Model                   as X
+import           Test.Hspec              as X
+import           Text.Shakespeare.Text   (st)
+import           Yesod.Default.Config2   (ignoreEnv, loadAppSettings)
+import           Yesod.Test              as X
 
 -- Wiping the database
-import Database.Persist.Sqlite              (sqlDatabase, wrapConnection, createSqlPool)
-import qualified Database.Sqlite as Sqlite
-import Control.Monad.Logger                 (runLoggingT)
-import Settings (appDatabaseConf)
-import Yesod.Core (messageLoggerSource)
+import           Control.Monad.Logger    (runLoggingT)
+import           Database.Persist.Sqlite (createSqlPool, sqlDatabase,
+                                          wrapConnection)
+import qualified Database.Sqlite         as Sqlite
+import           Settings                (appDatabaseConf)
+import           Yesod.Core              (messageLoggerSource)
 
 runDB :: SqlPersistM a -> YesodExample App a
 runDB query = do
@@ -49,8 +52,8 @@ wipeDB app = do
 
     -- Aside: SQLite by default *does not enable foreign key checks*
     -- (disabling foreign keys is only necessary for those who specifically enable them).
-    let settings = appSettings app   
-    sqliteConn <- rawConnection (sqlDatabase $ appDatabaseConf settings)    
+    let settings = appSettings app
+    sqliteConn <- rawConnection (sqlDatabase $ appDatabaseConf settings)
     disableForeignKeys sqliteConn
 
     let logFunc = messageLoggerSource app (appLogger app)

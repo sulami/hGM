@@ -1,7 +1,7 @@
 module Import.Premium where
 
-import Import
-import Data.Time.Calendar (addDays)
+import           Data.Time.Calendar (addDays)
+import           Import
 
 -- | The set of available month/price pairs.
 prices :: [(Int, Float)]

@@ -1,7 +1,7 @@
 module Handler.Shared where
 
-import Import
-import Database.Persist.Sql (toSqlKey)
+import           Database.Persist.Sql (toSqlKey)
+import           Import
 
 getSharedR :: Int64 -> Handler Html
 getSharedR key =

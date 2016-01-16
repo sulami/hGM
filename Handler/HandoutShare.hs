@@ -1,7 +1,7 @@
 module Handler.HandoutShare where
 
-import Import
-import Database.Persist.Sql (fromSqlKey)
+import           Database.Persist.Sql (fromSqlKey)
+import           Import
 
 getHandoutShareR :: HandoutId -> Handler Text
 getHandoutShareR handoutId = do

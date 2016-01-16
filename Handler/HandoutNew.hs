@@ -1,8 +1,8 @@
 module Handler.HandoutNew where
 
-import Import
-import Import.Premium (hasPremium)
-import Handler.HandoutEdit (handoutForm)
+import           Handler.HandoutEdit (handoutForm)
+import           Import
+import           Import.Premium      (hasPremium)
 
 getHandoutNewR :: CampaignId -> Handler Html
 getHandoutNewR cid = do

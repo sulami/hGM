@@ -2,8 +2,8 @@
 
 module Game.DnD.GM.Dice where
 
-import Prelude
-import System.Random (StdGen, setStdGen, getStdGen, mkStdGen, randomR)
+import           Prelude
+import           System.Random (StdGen, getStdGen, mkStdGen, randomR, setStdGen)
 
 -- | Use an initial integer to deterministically initialize the RNG.
 initialize :: Int -> StdGen

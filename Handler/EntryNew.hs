@@ -2,9 +2,8 @@ module Handler.EntryNew where
 
 import           Import
 
-import           Handler.EntryEdit (
-  entryForm, formatCategories, updateRelationships
-  )
+import           Handler.EntryEdit (entryForm, formatCategories,
+                                    updateRelationships)
 
 getEntryNewR :: CampaignId -> Handler Html
 getEntryNewR cid = do
